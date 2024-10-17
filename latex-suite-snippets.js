@@ -123,7 +123,7 @@
 //{trigger: /3rd/, replacement: "3^{\\text{rd}}", options: "mA"},
 //{trigger: /([04-9])th/, replacement: "[[0]]^{\\text{th}}", options: "mA"},
 
-// Visual
+// Visual, don't work with regex
 {trigger: "A", replacement: "\\begin{align}\n${VISUAL}$0\n\\end{align}", options: "mA"},
 {trigger: "U", replacement: "\\underbrace{ ${VISUAL} }_{ $0 }$1", options: "mA"},
 {trigger: "O", replacement: "\\overbrace{ ${VISUAL} }^{ $0 }$1", options: "mA"},
@@ -135,10 +135,13 @@
 {trigger: "X", replacement: "\\xcancel{${VISUAL}}", options: "mA"},
 {trigger: "K", replacement: "\\cancelto{ $0 }{ ${VISUAL} }$1", options: "mA"},
 {trigger: "S", replacement: "\\sqrt{${VISUAL}}", options: "mA"},
-//{trigger: "m", replacement: "| ${VISUAL} |", options: "mA"},
 {trigger: "M", replacement: "\\left| ${VISUAL} \\right|", options: "mA"},
 //{trigger: "n", replacement: "\\| ${VISUAL} \\|", options: "mA"},
 {trigger: "N", replacement: "\\left\\| ${VISUAL} \\right\\|", options: "mA"},
+{trigger: "\|", replacement: "| ${VISUAL} |", options: "mA"},
+{trigger: "\(", replacement: "(${VISUAL})", options: "mA"},
+{trigger: "\[", replacement: "[${VISUAL}]", options: "mA"},
+{trigger: "\{", replacement: "{${VISUAL}}", options: "mA"},
 
 // Greek letters
 {trigger: /@a/, replacement: "\\alpha", options: "mA"},
@@ -394,9 +397,6 @@
 {trigger: /mood/, replacement: "\\left| $0 \\right|$1", options: "mA"},
 {trigger: /norm/, replacement: "\\| $0 \\|$1", options: "mA", priority: 2},
 {trigger: /noorm/, replacement: "\\left\\| $0 \\right\\|$1", options: "mA", priority: 2},
-{trigger: /\(/, replacement: "(${VISUAL})", options: "mA"},
-{trigger: /\[/, replacement: "[${VISUAL}]", options: "mA"},
-{trigger: /\{/, replacement: "{${VISUAL}}", options: "mA"},
 {trigger: /\(/, replacement: "($0)$1", options: "mA"},
 {trigger: /\{/, replacement: "{$0}$1", options: "mA"},
 {trigger: /\[/, replacement: "[$0]$1", options: "mA"},
