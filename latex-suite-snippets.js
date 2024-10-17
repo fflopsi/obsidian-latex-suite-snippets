@@ -173,7 +173,7 @@
 // Add backslash before greek letters and symbols
 {trigger: /([^\\])(${GREEK}|${SYMBOL})/, replacement: "[[0]]\\[[1]]", options: "mA"},
 // Insert space after greek letters and symbols, etc
-{trigger: /\\(${GREEK}|${SYMBOL}|${SHORT_SYMBOL})([A-Za-z0-9])/, replacement: "\\[[0]] [[1]]", options: "mA"},
+{trigger: /\\(${GREEK}|${SYMBOL}|${SHORT_SYMBOL})([A-Za-z])/, replacement: "\\[[0]] [[1]]", options: "mA"},
 {trigger: /\\(${GREEK}|${SYMBOL}) sr/, replacement: "\\[[0]]^{2}", options: "mA"},
 {trigger: /\\(${GREEK}|${SYMBOL}) cb/, replacement: "\\[[0]]^{3}", options: "mA"},
 {trigger: /\\(${GREEK}|${SYMBOL}) (bar|dot|ddot|hat|tilde|vec)/, replacement: "\\[[1]]{\\[[0]]}", options: "mA"},
@@ -205,8 +205,8 @@
 //{trigger: /hom/, replacement: "\\mathrm{Hom}_{${0:K}}(${1:V}, ${2:W})", options: "mA"},
 {trigger: /11([ijkmn])/, replacement: "\\mathbb{1}_{[[0]]}", options: "mA"},
 {trigger: /\\mathbb\{1\}_\{([ijkmn])\}([2-9])/, replacement: "\\mathbb{1}_{[[1]]}", options: "mA"},
-{trigger: /C([0-9kmn])/, replacement: "C^{[[0]]}", options: "mA", priority: 1},
-{trigger: /Co/, replacement: "C^{\\infty}", options: "mA"},
+{trigger: /(C|L)([0-9kmn])/, replacement: "[[0]]^{[[1]]}", options: "mA", priority: 1},
+{trigger: /(C|L)o/, replacement: "[[0]]^{\\infty}", options: "mA"},
 {trigger: /csv/, replacement: "${1:v}_{1}, \\dots, ${1:v}_{${2:n}}$3", options: "mA"},
 {trigger: /mx/, replacement: "M_{${0:m} \\times ${1:n}}(${3:K})", options: "mA"},
 {trigger: /lim/, replacement: "\\lim_{${0:n} \\to ${1:\\infty}} $2", options: "mA", priority: 1},
@@ -335,7 +335,6 @@
 {trigger: /\\mathbb\{N\}0/, replacement: "\\mathbb{N}_{0}", options: "mA"},
 {trigger: /([F])\1/, replacement: "\\mathcal{[[0]]}", options: "mA"},
 {trigger: /([HS])\1/, replacement: "\\mathscr{[[0]]}", options: "mA"},
-{trigger: /L2/, replacement: "L^{2}", options: "mA", priority: 1},
 
 // Derivatives
 {trigger: /der/, replacement: "\\frac{\\mathrm{d}${0:y}}{\\mathrm{d}${1:x}}$2", options: "m"},
@@ -344,7 +343,7 @@
 {trigger: /de([A-Za-z])([2-9])/, replacement: "\\frac{\\mathrm{d}^{[[1]]}}{\\mathrm{d}[[0]]^{[[1]]}}", options: "mA"},
 {trigger: /de([A-Za-z])([A-Za-z])/, replacement: "\\frac{\\mathrm{d}[[0]]}{\\mathrm{d}[[1]]}", options: "m"},
 {trigger: /de([A-Za-z])([A-Za-z])([2-9])/, replacement: "\\frac{\\mathrm{d}^{[[2]]}[[0]]}{\\mathrm{d}[[1]]^{[[2]]}}", options: "mA"},
-{trigger: /de([A-Za-z])([A-Za-z])([A-Za-z])/, replacement: "\\frac{\\mathrm{d}^{2} [[0]]}{\\mathrm{d}[[1]] \\, \\mathrm{d}[[2]]}", options: "m"},
+{trigger: /[^\\]de([A-Za-z])([A-Za-z])([A-Za-z])/, replacement: "\\frac{\\mathrm{d}^{2} [[0]]}{\\mathrm{d}[[1]] \\, \\mathrm{d}[[2]]}", options: "m"},
 {trigger: /dd([tx])/, replacement: "\\frac{\\mathrm{d}$0}{\\mathrm{d}[[0]]}$1", options: "mA"},
 {trigger: /par/, replacement: "\\frac{\\partial ${0:y}}{\\partial ${1:x}}$2", options: "m"},
 {trigger: /pa([2-9])/, replacement: "\\frac{\\partial^{[[0]]} ${0:y}}{\\partial ${1:x}^{[[0]]}}$2", options: "mA"},
