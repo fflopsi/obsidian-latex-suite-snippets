@@ -69,6 +69,7 @@
 {trigger: /Leb/, replacement: "Lebesgue", options: "t", flags: "i"},
 {trigger: /CR/, replacement: "Cauchy-Riemann", options: "t", flags: "i"},
 {trigger: /Fou?/, replacement: "Fourier", options: "t", flags: "i"},
+{trigger: /Schw?/, replacement: "Schwartz", options: "t", flags: "i"},
 
 // German
 {trigger: /Kor/, replacement: "Korollar", options: "t", flags: "i"},
