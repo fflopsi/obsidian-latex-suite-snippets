@@ -205,7 +205,7 @@
 //{trigger: /hom/, replacement: "\\mathrm{Hom}_{${0:K}}(${1:V}, ${2:W})", options: "mA"},
 {trigger: /11([ijkmn])/, replacement: "\\mathbb{1}_{[[0]]}", options: "mA"},
 {trigger: /\\mathbb\{1\}_\{([ijkmn])\}([2-9])/, replacement: "\\mathbb{1}_{[[1]]}", options: "mA"},
-{trigger: /(C|L)([0-9kmn])/, replacement: "[[0]]^{[[1]]}", options: "mA", priority: 1},
+{trigger: /(C|L)([0-9ijkmn])/, replacement: "[[0]]^{[[1]]}", options: "mA", priority: 1},
 {trigger: /(C|L)o/, replacement: "[[0]]^{\\infty}", options: "mA"},
 {trigger: /csv/, replacement: "${1:v}_{1}, \\dots, ${1:v}_{${2:n}}$3", options: "mA"},
 {trigger: /mx/, replacement: "M_{${0:m} \\times ${1:n}}(${3:K})", options: "mA"},
