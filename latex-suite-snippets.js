@@ -182,6 +182,7 @@
 {trigger: /\\(${GREEK}|${SYMBOL}) lbar/, replacement: "\\overline{\\[[0]]}", options: "mA", priority: 1},
 //{trigger: /\\(${GREEK}),\\./, replacement: "\\boldsymbol{\\[[0]]}", options: "mA"},
 //{trigger: /\\(${GREEK})\\.,/, replacement: "\\boldsymbol{\\[[0]]}", options: "mA"},
+//{trigger: /\\(${GREEK})\./, replacement: "_{\\[[0]]}", options: "mA", priority: 1},
 
 // Trigonometric functions
 // Add \ before trig functions
@@ -411,7 +412,6 @@
 //{trigger: /(\\left)?\(\s*([^,]*?)\s*,\s*([^,]*?)\s*(\\right)?\)22/, replacement: "\\begin{pmatrix}\n[[1]] \\\\\n[[2]]\n\\end{pmatrix}", options: "MA"},
 //{trigger: /(\\left)?\(\s*([^,]*?)\s*,\s*([^,]*?)\s*,\s*([^,]*?)\s*(\\right)?\)33/, replacement: "\\begin{pmatrix}\n[[1]] \\\\\n[[2]] \\\\\n[[3]]\n\\end{pmatrix}", options: "MA"},
 //{trigger: /([A-Za-z])\./, replacement: "_{[[0]]}", options: "mA"},
-//{trigger: /\\(${GREEK})\./, replacement: "_{\\[[0]]}", options: "mA", priority: 1},
 
 // Misc
 //{trigger: /tayl/, replacement: "${0:f}(${1:x} + ${2:h}) = ${0:f}(${1:x}) + ${0:f}'(${1:x})${2:h} + ${0:f}''(${1:x}) \\frac{${2:h}^{2}}{2!} + \\dots$3", options: "mA"},
