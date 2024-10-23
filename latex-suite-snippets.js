@@ -41,8 +41,8 @@
 {trigger: /(c)pt/, replacement: "[[0]]ompact", options: "t", flags: "i"},
 {trigger: /(c)onn?/, replacement: "[[0]]onnected", options: "t", flags: "i"},
 {trigger: /(m)ea/, replacement: "[[0]]easurable", options: "t", flags: "i"},
-{trigger: /(d)ya/, replacement: "[[0]]yadic", options: "t", flags: "i"},
-{trigger: /(s)ubm/, replacement: "[[0]]ubmanifold", options: "t", flags: "i"},
+//{trigger: /(d)ya/, replacement: "[[0]]yadic", options: "t", flags: "i"},
+//{trigger: /(s)ubm/, replacement: "[[0]]ubmanifold", options: "t", flags: "i"},
 {trigger: /(c)om/, replacement: "[[0]]omplex", options: "t", flags: "i"},
 {trigger: /(h)ol/, replacement: "[[0]]olomorphic", options: "t", flags: "i"},
 
