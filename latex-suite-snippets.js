@@ -14,10 +14,11 @@
 {trigger: /(e)q/, replacement: "[[0]]quation", options: "t", flags: "i"},
 {trigger: /(t)ri/, replacement: "[[0]]riangle inequality", options: "t", flags: "i"},
 {trigger: /MVT/, replacement: "Mean Value Theorem", options: "t", flags: "i"},
-{trigger: /(f)un/, replacement: "[[0]]unction", options: "t", flags: "i"},
+{trigger: /(f)unc?/, replacement: "[[0]]unction", options: "t", flags: "i"},
 {trigger: /(s)eq/, replacement: "[[0]]equence", options: "t", flags: "i"},
 {trigger: /(s)seq/, replacement: "[[0]]ubsequence", options: "t", flags: "i"},
 {trigger: /(p)t/, replacement: "[[0]]oint", options: "t", flags: "i"},
+{trigger: /(p)ts/, replacement: "[[0]]oints", options: "t", flags: "i"},
 {trigger: /(i)nfi/, replacement: "[[0]]nfinite", options: "t", flags: "i"},
 {trigger: /(i)nfy/, replacement: "[[0]]nfinity", options: "t", flags: "i"},
 {trigger: /(b)dd/, replacement: "[[0]]ounded", options: "t", flags: "i"},
@@ -44,7 +45,7 @@
 //{trigger: /(d)ya/, replacement: "[[0]]yadic", options: "t", flags: "i"},
 //{trigger: /(s)ubm/, replacement: "[[0]]ubmanifold", options: "t", flags: "i"},
 {trigger: /(c)om/, replacement: "[[0]]omplex", options: "t", flags: "i"},
-{trigger: /(h)ol/, replacement: "[[0]]olomorphic", options: "t", flags: "i"},
+{trigger: /(h)olo?/, replacement: "[[0]]olomorphic", options: "t", flags: "i"},
 
 // Universal
 {trigger: /(D)ef/, replacement: "[[0]]efinition", options: "t", flags: "i"},
