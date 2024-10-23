@@ -197,8 +197,8 @@
 {trigger: /ar\\(${HYP_TRIG}|${HYP_TRIG_NEW})/, replacement: "\\mathop{\\mathrm{ar[[0]]}}", options: "mA", priority: 1},
 
 // Operations
-{trigger: /(?<!\\ar)([FGfg])('*)([xyz])/, replacement: "[[0]][[1]]([[2]])", options: "mA"},
-{trigger: /([FGfg])('*)\(([xyz])\)([0-9])/, replacement: "[[0]][[1]]([[2]]_{[[3]]})", options: "mA"},
+{trigger: /(?<!\\ar)([FGfg](_\{[0-9ijkmn]\})?)('*)([w-z])/, replacement: "[[0]][[2]]([[3]])", options: "mA"},
+{trigger: /([FGfg](_\{[0-9ijkmn]\})?)('*)\(([xyz])\)([0-9])/, replacement: "[[0]][[2]]([[3]]_{[[4]]})", options: "mA"},
 {trigger: /fuv/, replacement: "f = u + iv", options: "mA"},
 {trigger: /\\gamma([abt])/, replacement: "\\gamma([[0]])", options: "mA", priority: 1},
 {trigger: /\\gamma\(([abt])\)([0-9])/, replacement: "\\gamma([[0]]_{[[1]]})", options: "mA", priority: 1},
