@@ -3,8 +3,6 @@
 {trigger: /mk/, replacement: "${ $0 }$$1", options: "tA"},
 {trigger: /dm/, replacement: "$$\n$0\n$$\n", options: "tAw"},
 {trigger: /adm/, replacement: "$$\n\\begin{align}\n$0\n\\end{align}\n$$\n", options: "tAw"},
-// Fix ' usage for derivatives to supress autopair
-{trigger: /'/, replacement: "'$0", options: "mA"},
 {trigger: /split/, replacement: " }$ ${ ", options: "nA"},
 
 // Headings
@@ -254,6 +252,8 @@
 {trigger: /\\(neq|geq|leq|gg|ll|sim|simeq|approx|cong|equiv)([0-9]+)/, replacement: "\\[[0]] [[1]]", options: "mA"}, //improve
 
 // Symbols
+// Fix ' usage for derivatives to supress autopair
+{trigger: /'/, replacement: "'$0", options: "mA"},
 {trigger: /ooo/, replacement: "\\infty", options: "mA"},
 {trigger: /cpd/, replacement: "\\circ", options: "mA"},
 {trigger: /\+-/, replacement: "\\pm", options: "mA"},
