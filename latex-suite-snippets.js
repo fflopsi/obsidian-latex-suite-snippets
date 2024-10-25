@@ -218,7 +218,7 @@
 {trigger: /te/, replacement: "\\text{$0}", options: "m"},
 {trigger: /text/, replacement: "\\text{$0}", options: "mA"},
 {trigger: /sts/, replacement: "_\\text{$0}", options: "mA"},
-{trigger: /m?(bb|bf|cal|rm|scr|op)/, replacement: "\\math[[0]]{$0}$1", options: "mA"},
+{trigger: /m?(bb|bf|cal|rm|scr|op)/, replacement: "\\math[[0]]{$0}$1", options: "mA", priority: -1},
 {trigger: /sq/, replacement: "\\sqrt{$0}$1", options: "mA"},
 {trigger: /nsq/, replacement: "\\sqrt[$0]{$1}$2", options: "mA", priority: 1},
 {trigger: /sr/, replacement: "^{2}", options: "mA"},
