@@ -197,9 +197,9 @@
 // Insert space after hyperbolic trig functions
 {trigger: /\\(${HYP_TRIG})([A-Za-z0-9])/, replacement: "\\[[0]] [[1]]", options: "mA"},
 // Define missing trig functions
-{trigger: /\\?(${TRIG_NEW}|${HYP_TRIG_NEW})/, replacement: "\\mathop{\\mathrm{[[0]]}}", options: "mA"},
+{trigger: /\\?(${TRIG_NEW}|${HYP_TRIG_NEW})/, replacement: "\\operatorname{[[0]]}", options: "mA"},
 // Define missing area hyperbolic trig functions
-{trigger: /ar\\(${HYP_TRIG}|${HYP_TRIG_NEW})/, replacement: "\\mathop{\\mathrm{ar[[0]]}}", options: "mA", priority: 1},
+{trigger: /ar\\(${HYP_TRIG}|${HYP_TRIG_NEW})/, replacement: "\\operatorname{ar[[0]]}", options: "mA", priority: 1},
 
 // Operations
 {trigger: /(?<!\\ar)([FGfg](_\{[0-9ijkmn]\})?)('*)([w-z])/, replacement: "[[0]][[2]]([[3]])", options: "mA"},
@@ -237,8 +237,8 @@
 //{trigger: /(max|min|sup|inf|sum|prod|det|ker|cong|ell|arg)/, replacement: "\\[[0]]", options: "mA"},
 //{trigger: /cdot/, replacement: "\\cdot", options: "mA", priority: 2},
 {trigger: /(id)/, replacement: "\\mathrm{[[0]]}", options: "mA"},
-{trigger: /(Re|Im|sgn|Tr|End|adj|im|rk|grad|div|rot|vol|spt|Sym|Alt|Arg|ord)/, replacement: "\\mathop{\\mathrm{[[0]]}}", options: "mA"},
-//{trigger: /trace/, replacement: "\\mathop{\\mathrm{Tr}}", options: "mA"},
+{trigger: /(Re|Im|sgn|Tr|End|adj|im|rk|grad|div|rot|vol|spt|Sym|Alt|Arg|ord)/, replacement: "\\operatorname{[[0]]}", options: "mA"},
+//{trigger: /trace/, replacement: "\\operatorname{Tr}", options: "mA"},
 // Auto letter subscript
 {trigger: /([A-Za-z])(\d)/, replacement: "[[0]]_{[[1]]}", options: "mA", priority: -1},
 {trigger: /([A-Za-z])_\{(\d+)\}(\d)/, replacement: "[[0]]_{[[1]][[2]]}", options: "mA"},
