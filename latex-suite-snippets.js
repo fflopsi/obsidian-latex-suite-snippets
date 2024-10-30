@@ -238,6 +238,7 @@
 //{trigger: /cdot/, replacement: "\\cdot", options: "mA", priority: 2},
 {trigger: /(id)/, replacement: "\\mathrm{[[0]]}", options: "mA"},
 {trigger: /(Re|Im|sgn|Tr|End|adj|im|rk|grad|div|rot|vol|spt|Sym|Alt|Arg|ord)/, replacement: "\\operatorname{[[0]]}", options: "mA"},
+{trigger: /\\operatorname\{Re\}s/, replacement: "\\operatorname{Res}", options: "mA"},
 //{trigger: /trace/, replacement: "\\operatorname{Tr}", options: "mA"},
 // Auto letter subscript
 {trigger: /([A-Za-z])(\d)/, replacement: "[[0]]_{[[1]]}", options: "mA", priority: -1},
