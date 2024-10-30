@@ -21,6 +21,7 @@
 {trigger: /(p)ts/, replacement: "[[0]]oints", options: "t", flags: "i"},
 {trigger: /(i)nfi/, replacement: "[[0]]nfinite", options: "t", flags: "i"},
 {trigger: /(i)nfy/, replacement: "[[0]]nfinity", options: "t", flags: "i"},
+{trigger: /(n)bhd/, replacement: "[[0]]eighborhood", options: "t", flags: "i"},
 {trigger: /(b)dd/, replacement: "[[0]]ounded", options: "t", flags: "i"},
 {trigger: /(s)tr/, replacement: "[[0]]trictly", options: "t", flags: "i"},
 {trigger: /(i)nc/, replacement: "[[0]]ncreasing", options: "t", flags: "i"},
@@ -69,6 +70,7 @@
 {trigger: /CR/, replacement: "Cauchy-Riemann", options: "t", flags: "i"},
 {trigger: /Fou?/, replacement: "Fourier", options: "t", flags: "i"},
 {trigger: /Schw?/, replacement: "Schwartz", options: "t", flags: "i"},
+{trigger: /Lag?/, replacement: "Lagrange", options: "t", flags: "i"},
 
 // German
 {trigger: /Kor/, replacement: "Korollar", options: "t", flags: "i"},
