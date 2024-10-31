@@ -6,7 +6,7 @@
 {trigger: /split/, replacement: " }$ ${ ", options: "nA"},
 
 // Headings
-{trigger: /h([1-6])/, replacement: (match) => "#".repeat(match[1]) + " ", options: "tA"},
+{trigger: /h([1-6])/, replacement: (s) => "#".repeat(s[1]) + " ", options: "tA"},
 
 // English
 {trigger: /(c)or/, replacement: "[[0]]orollary", options: "t", flags: "i"},
