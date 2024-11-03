@@ -176,6 +176,8 @@
 {trigger: /(o)me/, replacement: "\\[[0]]mega", options: "mA", flags: "i"},
 // Add backslash before greek letters and symbols
 {trigger: /([^\\])(${GREEK}|${SYMBOL})/, replacement: "[[0]]\\[[1]]", options: "mA"},
+// Greek number subscript
+{trigger: /\\(${GREEK})([0-9])/, replacement: "\\[[0]]_{[[1]]}", options: "mA"}, //improve
 // Insert space after greek letters and symbols, etc
 {trigger: /\\(${GREEK}|${SYMBOL}|${SHORT_SYMBOL})([A-Za-z])/, replacement: "\\[[0]] [[1]]", options: "mA"},
 {trigger: /\\(${GREEK}|${SYMBOL}) sr/, replacement: "\\[[0]]^{2}", options: "mA"},
