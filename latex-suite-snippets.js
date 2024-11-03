@@ -177,6 +177,8 @@
 {trigger: /(?<!\\)(${GREEK}|${SYMBOL})/, replacement: "\\[[0]]", options: "mA"},
 // Greek number subscript
 {trigger: /\\(${GREEK})([0-9])/, replacement: "\\[[0]]_{[[1]]}", options: "mA"}, //improve
+// No symbol subscript
+{trigger: /\\(${SYMBOL}|${SHORT_SYMBOL})([0-9])/, replacement: "\\[[0]] [[1]]", options: "mA"},
 // Insert space after greek letters and symbols, etc
 {trigger: /\\(${GREEK}|${SYMBOL}|${SHORT_SYMBOL})([A-Za-z])/, replacement: "\\[[0]] [[1]]", options: "mA"},
 {trigger: /\\(${GREEK}|${SYMBOL}) sr/, replacement: "\\[[0]]^{2}", options: "mA"},
