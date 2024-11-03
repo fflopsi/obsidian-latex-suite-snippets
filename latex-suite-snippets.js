@@ -357,7 +357,7 @@
 {trigger: /de([A-Za-z])([A-Za-z])/, replacement: "\\frac{\\mathrm{d}[[0]]}{\\mathrm{d}[[1]]}", options: "m"},
 {trigger: /de([A-Za-z])([A-Za-z])([2-9])/, replacement: "\\frac{\\mathrm{d}^{[[2]]}[[0]]}{\\mathrm{d}[[1]]^{[[2]]}}", options: "mA"},
 {trigger: /[^\\]de([A-Za-z])([A-Za-z])([A-Za-z])/, replacement: "\\frac{\\mathrm{d}^{2} [[0]]}{\\mathrm{d}[[1]] \\, \\mathrm{d}[[2]]}", options: "m"},
-{trigger: /dd([tx])/, replacement: "\\frac{\\mathrm{d}$0}{\\mathrm{d}[[0]]}$1", options: "mA"},
+{trigger: /dd([tx-z])/, replacement: "\\frac{\\mathrm{d}$0}{\\mathrm{d}[[0]]}$1", options: "mA"},
 {trigger: /par/, replacement: "\\frac{\\partial ${0:y}}{\\partial ${1:x}}$2", options: "m"},
 {trigger: /pa([2-9])/, replacement: "\\frac{\\partial^{[[0]]} ${0:y}}{\\partial ${1:x}^{[[0]]}}$2", options: "mA"},
 {trigger: /pa([A-Za-z])/, replacement: "\\frac{\\partial}{\\partial [[0]]}", options: "m"},
