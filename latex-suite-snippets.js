@@ -1,4 +1,8 @@
-[
+// Transform l to \ell if needed
+const l = m => m == "l" ? "\\ell" : m;
+
+// Exported snippets
+export default [
 // Math mode
 {trigger: /mk/, replacement: "${ $0 }$$1", options: "tA"},
 {trigger: /dm/, replacement: "$$\n$0\n$$\n", options: "tAw"},
