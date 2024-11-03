@@ -394,8 +394,8 @@ export default [
 // Environments
 {trigger: /beg/, replacement: "\\begin{$0}\n$1\n\\end{$0}", options: "MA"},
 {trigger: /case/, replacement: "\\begin{cases}\n$0\n\\end{cases}", options: "MA"},
-{trigger: /([pbBvV])mat/, replacement: "\\begin{[[0]]matrix}\n$0\n\\end{[[0]]matrix}", options: "MA"},
 {trigger: /(align|array|matrix)/, replacement: "\\begin{[[0]]}\n$0\n\\end{[[0]]}", options: "MA"},
+{trigger: /([BbpVv])mat/, replacement: "\\begin{[[0]]matrix}\n$0\n\\end{[[0]]matrix}", options: "MA"},
 
 // Brackets
 {trigger: /coi/, replacement: "[$0)$1", options: "mA"},
