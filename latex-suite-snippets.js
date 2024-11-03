@@ -403,7 +403,6 @@
 {trigger: /coi/, replacement: "[$0)$1", options: "mA"},
 {trigger: /oci/, replacement: "($0]$1", options: "mA"},
 {trigger: /set/, replacement: "\\{ $0 \\}$1", options: "mA"},
-{trigger: /avg/, replacement: "\\langle $0 \\rangle $1", options: "mA"},
 {trigger: /mo(o?)d/, replacement: (s) => `${s[1] == "o" ? "\\left" : ""}| $0 ${s[1] == "o" ? "\\right" : ""}|$1`, options: "mA"},
 {trigger: /no(o?)rm/, replacement: (s) => `${s[1] == "o" ? "\\left" : ""}\\| $0 ${s[1] == "o" ? "\\right" : ""}\\|$1`, options: "mA"},
 {trigger: /\(/, replacement: "($0)$1", options: "mA"},
