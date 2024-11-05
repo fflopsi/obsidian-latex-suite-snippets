@@ -108,7 +108,7 @@ export default [
 //{trigger: /(s)urj/, replacement: "[[0]]urjektiv", options: "t", flags: "i"},
 //{trigger: /(b)ij/, replacement: "[[0]]ijektiv", options: "t", flags: "i"},
 {trigger: /Pol/, replacement: "Polynom", options: "t", flags: "i"},
-{trigger: /NST/, replacement: "Nullstelle", options: "t", flags: "i"},
+{trigger: /NST/, replacement: "Nullstelle", options: "t", flags: "i", priority: 1},
 {trigger: /EW/, replacement: "Eigenwert", options: "t", flags: "i"},
 {trigger: /EV/, replacement: "Eigenvektor", options: "t", flags: "i"},
 //{trigger: /ER/, replacement: "Eigenraum", options: "t", flags: "i"},
