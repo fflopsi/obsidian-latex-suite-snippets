@@ -344,6 +344,7 @@ export default [
 {trigger: /([NZQRC])\1/, replacement: "\\mathbb{[[0]]}", options: "mA"},
 {trigger: /\\mathbb\{([NZQRC])\}([2-9a-z+-])/, replacement: "\\mathbb{[[0]]}^{[[1]]}", options: "mA"},
 {trigger: /\\mathbb\{N\}0/, replacement: "\\mathbb{N}_{0}", options: "mA"},
+{trigger: /\\mathbb\{C\}C/, replacement: "\\hat{\\mathbb{C}}", options: "mA"},
 {trigger: /([F])\1/, replacement: "\\mathcal{[[0]]}", options: "mA"},
 {trigger: /([HS])\1/, replacement: "\\mathscr{[[0]]}", options: "mA"},
 
