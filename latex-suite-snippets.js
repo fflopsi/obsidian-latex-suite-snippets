@@ -50,6 +50,10 @@ export default [
 //{trigger: /(s)ubm/, replacement: "[[0]]ubmanifold", options: "t", flags: "i"},
 {trigger: /(c)om/, replacement: "[[0]]omplex", options: "t", flags: "i"},
 {trigger: /(h)olo?/, replacement: "[[0]]olomorphic", options: "t", flags: "i"},
+{trigger: /(i)so/, replacement: "[[0]]solated", options: "t", flags: "i"},
+{trigger: /(r)em/, replacement: "[[0]]emovable", options: "t", flags: "i"},
+{trigger: /(e)ss/, replacement: "[[0]]ssential", options: "t", flags: "i"},
+{trigger: /(s)ing?/, replacement: "[[0]]ingularity", options: "t", flags: "i"},
 
 // Universal
 {trigger: /(D)ef/, replacement: "[[0]]efinition", options: "t", flags: "i"},
