@@ -6,4 +6,5 @@ TRIG: "sin|cos|tan|cot|sec|csc|arcsin|arccos|arctan",
 TRIG_NEW: "arccot|arcsec|arccsc",
 HYP_TRIG: "sinh|cosh|tanh|coth",
 HYP_TRIG_NEW: "sech|csch",
+DECO: "bar|check|dot|ddot|hat|mathring|tilde|vec|overline",
 }
