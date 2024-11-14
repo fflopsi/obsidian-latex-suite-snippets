@@ -225,7 +225,7 @@ export default [
 {trigger: /(C|L)o/, replacement: "[[0]]^{\\infty}", options: "mA"},
 {trigger: /(p?)([B-Db-d])([RSrs])([W-Zw-z])/, replacement: (s) => `${s[2].toUpperCase()}${s[1] == "p" ? "^{*}" : ""}_{${s[3]}}(${s[4]})`, options: "mA"},
 {trigger: /([B-D](\^\{\*\})?)_\{([RSrs])\}\(([W-Zw-z])\)(\d)/, replacement: "[[0]]_{[[2]]}([[3]]_{[[4]]})", options: "mA"},
-{trigger: /csv/, replacement: "${1:v}_{1}, \\dots, ${1:v}_{${2:n}}$3", options: "mA"},
+{trigger: /csv/, replacement: "${0:v}_{${1:1}}, \\dots, ${0:v}_{${3:n}}$4", options: "mA"},
 //{trigger: /mx/, replacement: "M_{${0:m} \\times ${1:n}}(${3:K})", options: "mA"},
 {trigger: /lim/, replacement: "\\lim_{${0:n} \\to ${1:\\infty}} $2", options: "mA", priority: 1},
 {trigger: /lis/, replacement: "\\limsup_{${0:n} \\to ${1:\\infty}} $2", options: "mA"},
