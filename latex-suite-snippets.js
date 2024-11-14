@@ -250,7 +250,7 @@ export default [
 //{trigger: /(max|min|sup|inf|sum|prod|det|ker|cong|ell|arg)/, replacement: "\\[[0]]", options: "mA"},
 //{trigger: /cdot/, replacement: "\\cdot", options: "mA", priority: 2},
 {trigger: /(id)/, replacement: "\\mathrm{[[0]]}", options: "mA"},
-{trigger: /(Re|Im|sgn|Tr|End|adj|im|rk|grad|div|rot|vol|spt|Sym|Alt|Arg|ord)/, replacement: "\\operatorname{[[0]]}", options: "mA"},
+{trigger: /(Re|Im|sgn|Tr|End|adj|rk|grad|div|rot|vol|spt|Sym|Alt|Arg|ord)/, replacement: "\\operatorname{[[0]]}", options: "mA"},
 {trigger: /\\operatorname\{Re\}s/, replacement: "\\operatorname{Res}", options: "mA"},
 //{trigger: /trace/, replacement: "\\operatorname{Tr}", options: "mA"},
 // Auto letter subscript
