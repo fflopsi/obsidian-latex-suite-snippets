@@ -238,7 +238,7 @@ export default [
 //{trigger: /mx/, replacement: "M_{${0:m} \\times ${1:n}}(${3:K})", options: "mA"},
 {trigger: /11([ijkmn])/, replacement: "\\mathbb{1}_{[[0]]}", options: "mA"},
 {trigger: /\\mathbb\{1\}_\{([ijkmn])\}([2-9])/, replacement: "\\mathbb{1}_{[[1]]}", options: "mA"},
-{trigger: /(C|L)([0-9ijkmn])/, replacement: "[[0]]^{[[1]]}", options: "mA", priority: 1},
+{trigger: /(C|L)([0-9ijkmn])/, replacement: "[[0]]^{[[1]]}", options: "mA"},
 {trigger: /(C|L)o/, replacement: "[[0]]^{\\infty}", options: "mA"},
 {trigger: /(p?)([B-Db-d])([RSrs])([W-Zw-z])/, replacement: (s) => `${s[2].toUpperCase()}${s[1] == "p" ? "^{*}" : ""}_{${s[3]}}(${s[4]})`, options: "mA"},
 {trigger: /([B-D](\^\{\*\})?)_\{([RSrs])\}\(([W-Zw-z])\)(\d)/, replacement: "[[0]]_{[[2]]}([[3]]_{[[4]]})", options: "mA"},
