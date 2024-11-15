@@ -349,6 +349,10 @@ export default [
 {trigger: /lis/, replacement: "\\limsup_{${0:n} \\to ${1:\\infty}} $2", options: "mA"},
 {trigger: /lin/, replacement: "\\liminf_{${0:n} \\to ${1:\\infty}} $2", options: "mA"},
 
+// Sums and products
+{trigger: /ssum/, replacement: "\\sum_{${0:n} = ${1:1}}^{${2:\\infty}} $3", options: "mA", priority: 1},
+{trigger: /pprod/, replacement: "\\prod_{${0:n} = ${1:1}}^{${2:\\infty}} $3", options: "mA", priority: 1},
+
 // Derivatives
 {trigger: /der/, replacement: "\\frac{\\mathrm{d}${0:y}}{\\mathrm{d}${1:x}}$2", options: "m"},
 {trigger: /de([2-9])/, replacement: "\\frac{\\mathrm{d}^{[[0]]} ${0:y}}{\\mathrm{d}${1:x}^{[[0]]}}$2", options: "mA"},
