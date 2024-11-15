@@ -263,8 +263,6 @@ export default [
 {trigger: /(id)/, replacement: "\\mathrm{[[0]]}", options: "mA"},
 {trigger: /(Re|Im|sgn|Tr|End|adj|rk|grad|div|rot|vol|spt|Sym|Alt|Arg|ord)/, replacement: "\\operatorname{[[0]]}", options: "mA"},
 {trigger: /\\operatorname\{Re\}s/, replacement: "\\operatorname{Res}", options: "mA"},
-// Insert space after inequality symbols
-{trigger: /\\(neq|geq|leq|gg|ll|sim|simeq|approx|cong|equiv)([0-9]+)/, replacement: "\\[[0]] [[1]]", options: "mA"}, //improve
 
 // Symbols
 // Fix ' usage for derivatives to supress autopair
