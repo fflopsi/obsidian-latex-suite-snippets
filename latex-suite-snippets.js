@@ -184,29 +184,45 @@ export default [
 // Add backslash before greek letters and symbols
 {trigger: /(?<!\\)(${GREEK}|${SYMBOL})/, replacement: "\\[[0]]", options: "mA"},
 // Greek number subscript
-{trigger: /\\(${GREEK})([0-9])/, replacement: "\\[[0]]_{[[1]]}", options: "mA"}, //improve
+{trigger: /(\\${GREEK})([0-9])/, replacement: "[[0]]_{[[1]]}", options: "mA"}, //improve
 // No symbol subscript
 {trigger: /\\(${SYMBOL}|${SHORT_SYMBOL})([0-9])/, replacement: "\\[[0]] [[1]]", options: "mA"},
 // Insert space after greek letters and symbols, etc
 {trigger: /\\(${GREEK}|${SYMBOL}|${SHORT_SYMBOL})([A-Za-z])/, replacement: "\\[[0]] [[1]]", options: "mA"},
-{trigger: /\\(${GREEK}) sr/, replacement: "\\[[0]]^{2}", options: "mA"},
-{trigger: /\\(${GREEK}) cb/, replacement: "\\[[0]]^{3}", options: "mA"},
-{trigger: /\\(${GREEK}) (bar|dot|ddot|hat|tilde|vec)/, replacement: "\\[[1]]{\\[[0]]}", options: "mA"},
-{trigger: /\\(${GREEK}) ck/, replacement: "\\check{\\[[0]]}", options: "mA"},
-{trigger: /\\(${GREEK}) (dd?)vec/, replacement: "\\[[1]]ot{\\vec{\\[[0]]}}", options: "mA", priority: 2},
-{trigger: /\\(${GREEK}) und/, replacement: "\\underline{\\[[0]]}", options: "mA"},
-{trigger: /\\(${GREEK}) lbar/, replacement: "\\overline{\\[[0]]}", options: "mA", priority: 1},
+{trigger: /(\\${GREEK}) sr/, replacement: "[[0]]^{2}", options: "mA"},
+{trigger: /(\\${GREEK}) cb/, replacement: "[[0]]^{3}", options: "mA"},
+{trigger: /(\\${GREEK}) (${DECO})/, replacement: "\\[[1]]{[[0]]}", options: "mA"},
+{trigger: /(\\${GREEK}) ck/, replacement: "\\check{[[0]]}", options: "mA"},
+{trigger: /(\\${GREEK}) (dd?)vec/, replacement: "\\[[1]]ot{\\vec{[[0]]}}", options: "mA", priority: 2},
+{trigger: /(\\${GREEK}) lbar/, replacement: "\\overline{[[0]]}", options: "mA", priority: 1},
+{trigger: /(\\${GREEK}) und/, replacement: "\\underline{[[0]]}", options: "mA"},
 //{trigger: /\\(${GREEK}),\\./, replacement: "\\boldsymbol{\\[[0]]}", options: "mA"},
 //{trigger: /\\(${GREEK})\\.,/, replacement: "\\boldsymbol{\\[[0]]}", options: "mA"},
 //{trigger: /\\(${GREEK})\./, replacement: "_{\\[[0]]}", options: "mA", priority: 1},
+// Auto letter subscript
+{trigger: /([A-Za-z])(\d)/, replacement: "[[0]]_{[[1]]}", options: "mA", priority: -1},
+{trigger: /([A-Za-z])_\{(\d+)\}(\d)/, replacement: "[[0]]_{[[1]][[2]]}", options: "mA"},
+{trigger: /\\(${DECO}){([A-Za-z])}(\d)/, replacement: "\\[[0]]{[[1]]}_{[[2]]}", options: "mA"},
+{trigger: /([A-Za-z])(${DECO})/, replacement: "\\[[1]]{[[0]]}", options: "mA"},
+{trigger: /([A-Za-z])ck/, replacement: "\\check{[[0]]}", options: "mA"},
+{trigger: /([A-Za-z])compl/, replacement: "[[0]]^{\\complement}", options: "mA"},
+{trigger: /([A-Za-z])(dd?)vec/, replacement: "\\[[1]]ot{\\vec{[[0]]}}", options: "mA", priority: 2},
+{trigger: /([A-Za-z])lbar/, replacement: "\\overline{[[0]]}", options: "mA", priority: 1},
+{trigger: /([A-Za-z])ring/, replacement: "\\mathring{[[0]]}", options: "mA"},
+{trigger: /([A-Za-z])und/, replacement: "\\underline{[[0]]}", options: "mA"},
+{trigger: /(${DECO})/, replacement: "\\[[0]]{$0}$1", options: "mA"},
+{trigger: /(dd?)vec/, replacement: "\\[[0]]ot{\\vec{$0}}$1", options: "mA", priority: 2},
+{trigger: /lbar/, replacement: "\\overline{$0}$1", options: "mA", priority: 1},
+{trigger: /ring/, replacement: "\\mathring{$0}$1", options: "mA"},
+{trigger: /und/, replacement: "\\underline{$0}$1", options: "mA"},
 
 // Trigonometric functions
 // Add \ before trig functions
 {trigger: /(?<!\\)(${TRIG})/, replacement: "\\[[0]]", options: "mA"},
 // Insert space after trig functions. Skips letter "h" to allow sinh, cosh, etc
-{trigger: /\\(${TRIG})([A-Za-gi-z0-9])/, replacement: "\\[[0]] [[1]]", options: "mA"},
+{trigger: /(\\${TRIG})([A-Za-gi-z0-9])/, replacement: "[[0]] [[1]]", options: "mA"},
 // Insert space after hyperbolic trig functions
-{trigger: /\\(${HYP_TRIG})([A-Za-z0-9])/, replacement: "\\[[0]] [[1]]", options: "mA"},
+{trigger: /(\\${HYP_TRIG})([A-Za-z0-9])/, replacement: "[[0]] [[1]]", options: "mA"},
 // Define missing trig functions
 {trigger: /\\?(${TRIG_NEW}|${HYP_TRIG_NEW})/, replacement: "\\operatorname{[[0]]}", options: "mA"},
 // Define missing area hyperbolic trig functions
@@ -247,22 +263,6 @@ export default [
 {trigger: /(id)/, replacement: "\\mathrm{[[0]]}", options: "mA"},
 {trigger: /(Re|Im|sgn|Tr|End|adj|rk|grad|div|rot|vol|spt|Sym|Alt|Arg|ord)/, replacement: "\\operatorname{[[0]]}", options: "mA"},
 {trigger: /\\operatorname\{Re\}s/, replacement: "\\operatorname{Res}", options: "mA"},
-// Auto letter subscript
-{trigger: /([A-Za-z])(\d)/, replacement: "[[0]]_{[[1]]}", options: "mA", priority: -1},
-{trigger: /([A-Za-z])_\{(\d+)\}(\d)/, replacement: "[[0]]_{[[1]][[2]]}", options: "mA"},
-{trigger: /\\(bar|check|dot|ddot|hat|tilde|vec){([A-Za-z])}(\d)/, replacement: "\\[[0]]{[[1]]}_{[[2]]}", options: "mA"},
-{trigger: /([a-zA-Z])(bar|dot|ddot|hat|tilde|vec)/, replacement: "\\[[1]]{[[0]]}", options: "mA"},
-{trigger: /([a-zA-Z])ck/, replacement: "\\check{[[0]]}", options: "mA"},
-{trigger: /([a-zA-Z])ring/, replacement: "\\mathring{[[0]]}", options: "mA"},
-{trigger: /([a-zA-Z])lbar/, replacement: "\\overline{[[0]]}", options: "mA", priority: 1},
-{trigger: /([a-zA-Z])und/, replacement: "\\underline{[[0]]}", options: "mA"},
-{trigger: /([a-zA-Z])(dd?)vec/, replacement: "\\[[1]]ot{\\vec{[[0]]}}", options: "mA", priority: 2},
-{trigger: /([a-zA-Z])compl/, replacement: "[[0]]^{\\complement}", options: "mA"},
-{trigger: /([a-zA-Z])top/, replacement: "[[0]]^{\\top}", options: "mA"},
-{trigger: /(bar|check|dot|ddot|hat|tilde|vec)/, replacement: "\\[[0]]{$0}$1", options: "mA"},
-{trigger: /(dd?)vec/, replacement: "\\[[0]]ot{\\vec{$0}}", options: "mA", priority: 2},
-{trigger: /lbar/, replacement: "\\overline{$0}", options: "mA", priority: 1},
-{trigger: /und/, replacement: "\\underline{$0}", options: "mA"},
 // Insert space after inequality symbols
 {trigger: /\\(neq|geq|leq|gg|ll|sim|simeq|approx|cong|equiv)([0-9]+)/, replacement: "\\[[0]] [[1]]", options: "mA"}, //improve
 
