@@ -8,6 +8,11 @@ export default [
 {trigger: /dm/, replacement: "$$\n$0\n$$\n", options: "tAw"},
 {trigger: /adm/, replacement: "$$\n\\begin{align}\n$0\n\\end{align}\n$$\n", options: "tAw"},
 {trigger: /split/, replacement: " }$ ${ ", options: "nA"},
+// Environments
+{trigger: /beg/, replacement: "\\begin{$0}\n$1\n\\end{$0}", options: "MA"},
+{trigger: /case/, replacement: "\\begin{cases}\n$0\n\\end{cases}", options: "MA"},
+{trigger: /(align|array|matrix)/, replacement: "\\begin{[[0]]}\n$0\n\\end{[[0]]}", options: "MA"},
+{trigger: /([BbpVv])mat/, replacement: "\\begin{[[0]]matrix}\n$0\n\\end{[[0]]matrix}", options: "MA"},
 
 // Headings
 {trigger: /h([1-6])/, replacement: (s) => "#".repeat(s[1]) + " ", options: "tA"},
@@ -155,6 +160,37 @@ export default [
 {trigger: "\(", replacement: "(${VISUAL})", options: "mA"},
 {trigger: "\[", replacement: "[${VISUAL}]", options: "mA"},
 {trigger: "\{", replacement: "{${VISUAL}}", options: "mA"},
+
+// Brackets
+{trigger: /coi/, replacement: "[$0)$1", options: "mA"},
+{trigger: /oci/, replacement: "($0]$1", options: "mA"},
+{trigger: /set/, replacement: "\\{ $0 \\}$1", options: "mA"},
+{trigger: /mo(o?)d/, replacement: (s) => `${s[1] == "o" ? "\\left" : ""}| $0 ${s[1] == "o" ? "\\right" : ""}|$1`, options: "mA"},
+{trigger: /no(o?)rm/, replacement: (s) => `${s[1] == "o" ? "\\left" : ""}\\| $0 ${s[1] == "o" ? "\\right" : ""}\\|$1`, options: "mA"},
+{trigger: /\(/, replacement: "($0)$1", options: "mA"},
+{trigger: /\{/, replacement: "{$0}$1", options: "mA"},
+{trigger: /\[/, replacement: "[$0]$1", options: "mA"},
+{trigger: /lr\(/, replacement: "\\left( $0 \\right)$1", options: "mA"},
+{trigger: /lr\{/, replacement: "\\left\\{ $0 \\right\\}$1", options: "mA"},
+{trigger: /lr\[/, replacement: "\\left[ $0 \\right]$1", options: "mA"},
+{trigger: /lra/, replacement: "\\left< $0 \\right> $1", options: "mA"},
+{trigger: /lrf/, replacement: "\\lfloor $0 \\rfloor$1", options: "mA"},
+{trigger: /lrc/, replacement: "\\lceil $0 \\rceil$1", options: "mA"},
+
+// Physics
+{trigger: /pu/, replacement: "\\pu{$0}$1", options: "mA"},
+{trigger: /hba/, replacement: "\\hbar", options: "mA"},
+{trigger: /kbb/, replacement: "k_{B}", options: "mA"},
+{trigger: /kbt/, replacement: "k_{B}T", options: "mA"},
+{trigger: /(Q|W)(in|out)/, replacement: (s) => `${s[1]}^{\\${s[2] == "in" ? "sw" : "ne"}arrow}`, options: "mA"},
+{trigger: /msun|solm/, replacement: "M_{\\odot}", options: "mA"},
+{trigger: /dag/, replacement: "^{\\dagger}", options: "mA"},
+{trigger: /(bra|ket)/, replacement: "\\[[0]]{$0}$1", options: "mA"},
+{trigger: /brk/, replacement: "\\braket{ $0 | $1 }$2", options: "mA"},
+// Bra to braket
+{trigger: /\\bra\{([^|]+)\|/, replacement: "\\braket{ [[0]] | $0 ", options: "mA"},
+{trigger: /\\bra\{(.+)\}([^ ]+)>/, replacement: "\\braket{ [[0]] | [[1]] }$0", options: "mA"},
+{trigger: /outp/, replacement: "\\ket{${0:\\psi}} \\bra{${0:\\psi}} $1", options: "mA"},
 
 // Greek letters
 {trigger: /@a/, replacement: "\\alpha", options: "mA"},
@@ -382,44 +418,6 @@ export default [
 {trigger: /(i{2,4})nt/, replacement: "\\[[0]]nt", options: "mA"},
 {trigger: /isnt/, replacement: "\\int", options: "mA", priority: 1},
 
-// Physics
-{trigger: /kbb/, replacement: "k_{B}", options: "mA"},
-{trigger: /kbt/, replacement: "k_{B}T", options: "mA"},
-{trigger: /pu/, replacement: "\\pu{$0}$1", options: "mA"},
-{trigger: /(Q|W)(in|out)/, replacement: (s) => `${s[1]}^{\\${s[2] == "in" ? "sw" : "ne"}arrow}`, options: "mA"},
-{trigger: /msun|solm/, replacement: "M_{\\odot}", options: "mA"},
-
-// Quantum mechanics
-{trigger: /hba/, replacement: "\\hbar", options: "mA"},
-{trigger: /dag/, replacement: "^{\\dagger}", options: "mA"},
-{trigger: /(bra|ket)/, replacement: "\\[[0]]{$0}$1", options: "mA"},
-{trigger: /brk/, replacement: "\\braket{ $0 | $1 }$2", options: "mA"},
-// Bra to braket
-{trigger: /\\bra\{([^|]+)\|/, replacement: "\\braket{ [[0]] | $0 ", options: "mA"},
-{trigger: /\\bra\{(.+)\}([^ ]+)>/, replacement: "\\braket{ [[0]] | [[1]] }$0", options: "mA"},
-{trigger: /outp/, replacement: "\\ket{${0:\\psi}} \\bra{${0:\\psi}} $1", options: "mA"},
-
-// Environments
-{trigger: /beg/, replacement: "\\begin{$0}\n$1\n\\end{$0}", options: "MA"},
-{trigger: /case/, replacement: "\\begin{cases}\n$0\n\\end{cases}", options: "MA"},
-{trigger: /(align|array|matrix)/, replacement: "\\begin{[[0]]}\n$0\n\\end{[[0]]}", options: "MA"},
-{trigger: /([BbpVv])mat/, replacement: "\\begin{[[0]]matrix}\n$0\n\\end{[[0]]matrix}", options: "MA"},
-
-// Brackets
-{trigger: /coi/, replacement: "[$0)$1", options: "mA"},
-{trigger: /oci/, replacement: "($0]$1", options: "mA"},
-{trigger: /set/, replacement: "\\{ $0 \\}$1", options: "mA"},
-{trigger: /mo(o?)d/, replacement: (s) => `${s[1] == "o" ? "\\left" : ""}| $0 ${s[1] == "o" ? "\\right" : ""}|$1`, options: "mA"},
-{trigger: /no(o?)rm/, replacement: (s) => `${s[1] == "o" ? "\\left" : ""}\\| $0 ${s[1] == "o" ? "\\right" : ""}\\|$1`, options: "mA"},
-{trigger: /\(/, replacement: "($0)$1", options: "mA"},
-{trigger: /\{/, replacement: "{$0}$1", options: "mA"},
-{trigger: /\[/, replacement: "[$0]$1", options: "mA"},
-{trigger: /lr\(/, replacement: "\\left( $0 \\right)$1", options: "mA"},
-{trigger: /lr\{/, replacement: "\\left\\{ $0 \\right\\}$1", options: "mA"},
-{trigger: /lr\[/, replacement: "\\left[ $0 \\right]$1", options: "mA"},
-{trigger: /lra/, replacement: "\\left< $0 \\right> $1", options: "mA"},
-{trigger: /lrf/, replacement: "\\lfloor $0 \\rfloor$1", options: "mA"},
-{trigger: /lrc/, replacement: "\\lceil $0 \\rceil$1", options: "mA"},
 // These have some issues, especially matching too much despite the *? lazy matching operator  (but this only works in the forward direction, while I need it to work backwards, matching as few as possible from the end of the pattern towards the beginning
 //{trigger: /(\\left)?\(\s*([^,]*?)\s*,\s*([^,]*?)\s*(\\right)?\)22/, replacement: "\\begin{pmatrix}\n[[1]] \\\\\n[[2]]\n\\end{pmatrix}", options: "MA"},
 //{trigger: /(\\left)?\(\s*([^,]*?)\s*,\s*([^,]*?)\s*,\s*([^,]*?)\s*(\\right)?\)33/, replacement: "\\begin{pmatrix}\n[[1]] \\\\\n[[2]] \\\\\n[[3]]\n\\end{pmatrix}", options: "MA"},
