@@ -232,10 +232,10 @@ export default [
 
 // Operations
 {trigger: /(?<!\\ar)([FGfg](_\{[0-9ijkmn]\})?)('*)([w-z])/, replacement: "[[0]][[2]]([[3]])", options: "mA"},
-{trigger: /([FGfg](_\{[0-9ijkmn]\})?)('*)\(([xyz])\)([0-9])/, replacement: "[[0]][[2]]([[3]]_{[[4]]})", options: "mA"},
+{trigger: /([FGfg](_\{[0-9ijkmn]\})?)('*)\(([xyz])\)(\d)/, replacement: "[[0]][[2]]([[3]]_{[[4]]})", options: "mA"},
 {trigger: /fuv/, replacement: "f = u + iv", options: "mA"},
 {trigger: /\\gamma([abt])/, replacement: "\\gamma([[0]])", options: "mA", priority: 1},
-{trigger: /\\gamma\(([abt])\)([0-9])/, replacement: "\\gamma([[0]]_{[[1]]})", options: "mA", priority: 1},
+{trigger: /\\gamma\(([abt])\)(\d)/, replacement: "\\gamma([[0]]_{[[1]]})", options: "mA", priority: 1},
 //{trigger: /hom/, replacement: "\\mathrm{Hom}_{${0:K}}(${1:V}, ${2:W})", options: "mA"},
 //{trigger: /mx/, replacement: "M_{${0:m} \\times ${1:n}}(${3:K})", options: "mA"},
 {trigger: /11([ijkmn])/, replacement: "\\mathbb{1}_{[[0]]}", options: "mA"},
