@@ -184,26 +184,27 @@ export default [
 {trigger: /(o)me/, replacement: "\\[[0]]mega", options: "mA", flags: "i"},
 // Add backslash before greek letters and symbols
 {trigger: /(?<!\\)(${GREEK}|${SYMBOL})/, replacement: "\\[[0]]", options: "mA"},
-// Greek number subscript
-{trigger: /(\\${GREEK})([0-9])/, replacement: "[[0]]_{[[1]]}", options: "mA"}, //improve
 // No symbol subscript
-{trigger: /\\(${SYMBOL}|${SHORT_SYMBOL})([0-9])/, replacement: "\\[[0]] [[1]]", options: "mA"},
-// Insert space after greek letters and symbols, etc
+{trigger: /\\(${SYMBOL}|${SHORT_SYMBOL})(\d)/, replacement: "\\[[0]] [[1]]", options: "mA"},
+// Insert space after greek letters and symbols
 {trigger: /\\(${GREEK}|${SYMBOL}|${SHORT_SYMBOL})([A-Za-z])/, replacement: "\\[[0]] [[1]]", options: "mA"},
-{trigger: /(\\${GREEK}) sr/, replacement: "[[0]]^{2}", options: "mA"},
-{trigger: /(\\${GREEK}) cb/, replacement: "[[0]]^{3}", options: "mA"},
-{trigger: /(\\${GREEK}) (${DECO})/, replacement: "\\[[1]]{[[0]]}", options: "mA"},
-{trigger: /(\\${GREEK}) ck/, replacement: "\\check{[[0]]}", options: "mA"},
-{trigger: /(\\${GREEK}) (dd?)vec/, replacement: "\\[[1]]ot{\\vec{[[0]]}}", options: "mA", priority: 2},
-{trigger: /(\\${GREEK}) lbar/, replacement: "\\overline{[[0]]}", options: "mA", priority: 1},
-{trigger: /(\\${GREEK}) und/, replacement: "\\underline{[[0]]}", options: "mA"},
+// Remove space for ^-1, ^2, ^3
+{trigger: /\\(${GREEK}|${FUNCTION}|${TRIG}|${HYP_TRIG}) invs/, replacement: "\\[[0]]^{-1}", options: "mA"},
+{trigger: /\\(${GREEK}|${FUNCTION}|${TRIG}|${HYP_TRIG}) sr/, replacement: "\\[[0]]^{2}", options: "mA"},
+{trigger: /\\(${GREEK}|${FUNCTION}|${TRIG}|${HYP_TRIG}) cb/, replacement: "\\[[0]]^{3}", options: "mA"},
+// Some of the following don't work with the \\ inside the capture group
+{trigger: /\\(${GREEK}) (${DECO})/, replacement: "\\[[1]]{\\[[0]]}", options: "mA"},
+{trigger: /\\(${GREEK}) ck/, replacement: "\\check{\\[[0]]}", options: "mA"},
+{trigger: /\\(${GREEK}) (dd?)vec/, replacement: "\\[[1]]ot{\\vec{\\[[0]]}}", options: "mA", priority: 2},
+{trigger: /\\(${GREEK}) lbar/, replacement: "\\overline{\\[[0]]}", options: "mA", priority: 1},
+{trigger: /\\(${GREEK}) und/, replacement: "\\underline{\\[[0]]}", options: "mA"},
 //{trigger: /\\(${GREEK}),\\./, replacement: "\\boldsymbol{\\[[0]]}", options: "mA"},
 //{trigger: /\\(${GREEK})\\.,/, replacement: "\\boldsymbol{\\[[0]]}", options: "mA"},
 //{trigger: /\\(${GREEK})\./, replacement: "_{\\[[0]]}", options: "mA", priority: 1},
-// Auto letter subscript
+// Auto letter subscript (multiple too)
 {trigger: /([A-Za-z])(\d)/, replacement: "[[0]]_{[[1]]}", options: "mA", priority: -1},
 {trigger: /([A-Za-z])_\{(\d+)\}(\d)/, replacement: "[[0]]_{[[1]][[2]]}", options: "mA"},
-{trigger: /\\(${DECO}){([A-Za-z])}(\d)/, replacement: "\\[[0]]{[[1]]}_{[[2]]}", options: "mA"},
+{trigger: /\\(${DECO}){([A-Za-z]|\\${GREEK})}(\d)/, replacement: "\\[[0]]{[[1]]}_{[[2]]}", options: "mA"},
 {trigger: /([A-Za-z])(${DECO})/, replacement: "\\[[1]]{[[0]]}", options: "mA"},
 {trigger: /([A-Za-z])ck/, replacement: "\\check{[[0]]}", options: "mA"},
 {trigger: /([A-Za-z])compl/, replacement: "[[0]]^{\\complement}", options: "mA"},
