@@ -326,6 +326,7 @@ export default [
 {trigger: /del/, replacement: "\\partial", options: "mA"},
 {trigger: /ddd/, replacement: "\\mathrm{d}", options: "mA"},
 {trigger: /xx/, replacement: "\\times", options: "mA"},
+// Convert three spaces into a rendered small space
 {trigger: /   /, replacement: " \\, ", options: "mA"},
 {trigger: /para/, replacement: "\\parallel", options: "mA"},
 {trigger: /(c|k)onst/, replacement: "\\text{[[0]]onst.}", options: "mA"},
