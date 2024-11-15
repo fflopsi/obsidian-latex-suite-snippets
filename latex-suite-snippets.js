@@ -258,9 +258,9 @@ export default [
 // Add \ before trig functions
 {trigger: /(?<!\\)(${TRIG})/, replacement: "\\[[0]]", options: "mA"},
 // Insert space after trig functions. Skips letter "h" to allow sinh, cosh, etc
-{trigger: /(\\${TRIG})([A-Za-gi-z0-9])/, replacement: "[[0]] [[1]]", options: "mA"},
+{trigger: /(\\${TRIG})([A-Za-gi-z\d])/, replacement: "[[0]] [[1]]", options: "mA"},
 // Insert space after hyperbolic trig functions
-{trigger: /(\\${HYP_TRIG})([A-Za-z0-9])/, replacement: "[[0]] [[1]]", options: "mA"},
+{trigger: /(\\${HYP_TRIG})([A-Za-z\d])/, replacement: "[[0]] [[1]]", options: "mA"},
 // Define missing trig functions
 {trigger: /\\?(${TRIG_NEW}|${HYP_TRIG_NEW})/, replacement: "\\operatorname{[[0]]}", options: "mA"},
 // Define missing area hyperbolic trig functions
