@@ -352,6 +352,7 @@ export default [
 {trigger: /iff/, replacement: "\\iff", options: "mA"},
 {trigger: /===/, replacement: "\\equiv", options: "mA"},
 {trigger: /S(Q|q)/, replacement: "\\square", options: "mA"},
+{trigger: /S(Q|q)/, replacement: "${ \\square }$", options: "tAw"},
 //{trigger: /!=/, replacement: "\\neq", options: "mA"},
 //{trigger: />=/, replacement: "\\geq", options: "mA"},
 //{trigger: /<=/, replacement: "\\leq", options: "mA"},
