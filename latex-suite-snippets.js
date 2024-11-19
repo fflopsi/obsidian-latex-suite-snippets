@@ -55,6 +55,7 @@ export default [
 //{trigger: /(s)ubm/, replacement: "[[0]]ubmanifold", options: "t", flags: "i"},
 {trigger: /(c)om/, replacement: "[[0]]omplex", options: "t", flags: "i"},
 {trigger: /(h)olo?/, replacement: "[[0]]olomorphic", options: "t", flags: "i"},
+{trigger: /(m)ero?/, replacement: "[[0]]eromorphic", options: "t", flags: "i"},
 {trigger: /(i)so/, replacement: "[[0]]solated", options: "t", flags: "i"},
 {trigger: /(r)em/, replacement: "[[0]]emovable", options: "t", flags: "i"},
 {trigger: /(e)ss/, replacement: "[[0]]ssential", options: "t", flags: "i"},
@@ -380,7 +381,7 @@ export default [
 {trigger: /\\mathbb\{([NZQRC])\}([2-9a-z+-])/, replacement: "\\mathbb{[[0]]}^{[[1]]}", options: "mA"},
 {trigger: /\\mathbb\{N\}0/, replacement: "\\mathbb{N}_{0}", options: "mA"},
 {trigger: /\\mathbb\{C\}C/, replacement: "\\hat{\\mathbb{C}}", options: "mA"},
-{trigger: /([F])\1/, replacement: "\\mathcal{[[0]]}", options: "mA"},
+{trigger: /([FM])\1/, replacement: "\\mathcal{[[0]]}", options: "mA"},
 {trigger: /([HS])\1/, replacement: "\\mathscr{[[0]]}", options: "mA"},
 
 // Limits
