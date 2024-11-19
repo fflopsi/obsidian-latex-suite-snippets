@@ -1,5 +1,7 @@
 // Transform l to \ell if needed
 const l = m => m == "l" ? "\\ell" : m;
+// Transform o to \infty if needed
+const o = m => m == "o" ? "\\infty" : m;
 
 // Exported snippets
 export default [
