@@ -50,7 +50,7 @@ export default [
 {trigger: /(n)vs/, replacement: "[[0]]ormed vector space", options: "t", flags: "i"},
 {trigger: /(i)ps/, replacement: "[[0]]nner product space", options: "t", flags: "i"},
 {trigger: /(t)op/, replacement: "[[0]]opological", options: "t", flags: "i"},
-{trigger: /(c)pt/, replacement: "[[0]]ompact", options: "t", flags: "i"},
+{trigger: /(c)pt/, replacement: "[[0]]ompact", options: "t", flags: "i", priority: 1},
 {trigger: /(c)onn?/, replacement: "[[0]]onnected", options: "t", flags: "i"},
 {trigger: /(m)ea/, replacement: "[[0]]easurable", options: "t", flags: "i"},
 //{trigger: /(d)ya/, replacement: "[[0]]yadic", options: "t", flags: "i"},
