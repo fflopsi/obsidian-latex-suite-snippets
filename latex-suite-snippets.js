@@ -308,7 +308,6 @@ export default [
 // Fix ' usage for derivatives to supress autopair
 {trigger: /'/, replacement: "'$0", options: "mA"},
 {trigger: /ooo/, replacement: "\\infty", options: "mA"},
-{trigger: /cpd/, replacement: "\\circ", options: "mA"},
 {trigger: /\+-/, replacement: "\\pm", options: "mA"},
 {trigger: /-\+/, replacement: "\\mp", options: "mA"},
 //{trigger: /([^\\])(pm|mp)/, replacement: "[[0]]\\[[1]]", options: "m"},
