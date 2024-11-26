@@ -94,6 +94,7 @@ export default [
 {trigger: /Bsp/, replacement: "Beispiel", options: "t", flags: "i"},
 {trigger: /Bem/, replacement: "Bemerkung", options: "t", flags: "i"},
 {trigger: /Bew/, replacement: "Beweis", options: "t", flags: "i"},
+{trigger: /(z)us/, replacement: "[[0]]usammen", options: "t", flags: "i"},
 {trigger: /(b)spw/, replacement: "[[0]]eispielsweise", options: "t", flags: "i"},
 {trigger: /(z)B/, replacement: "[[0]]um Beispiel", options: "t", flags: "i"},
 {trigger: /(b)zw/, replacement: "[[0]]eziehungsweise", options: "t"},
