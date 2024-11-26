@@ -17,7 +17,7 @@ export default [
 {trigger: /([BbpVv])mat/, replacement: "\\begin{[[0]]matrix}\n$0\n\\end{[[0]]matrix}", options: "MA"},
 
 // Headings
-{trigger: /h([1-6])/, replacement: (s) => "#".repeat(s[1]) + " ", options: "tA"},
+{trigger: /h([1-6])/, replacement: (s) => `${"#".repeat(s[1])} `, options: "tA"},
 
 // English
 {trigger: /(c)or/, replacement: "[[0]]orollary", options: "t", flags: "i"},
