@@ -62,6 +62,7 @@ export default [
 {trigger: /(r)em/, replacement: "[[0]]emovable", options: "t", flags: "i"},
 {trigger: /(e)ss/, replacement: "[[0]]ssential", options: "t", flags: "i"},
 {trigger: /(s)ing?/, replacement: "[[0]]ingularity", options: "t", flags: "i"},
+{trigger: /(h)ot/, replacement: "[[0]]omotop", options: "t", flags: "i"},
 
 // Universal
 {trigger: /(D)ef/, replacement: "[[0]]efinition", options: "t", flags: "i"},
