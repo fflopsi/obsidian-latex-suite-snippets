@@ -1,9 +1,9 @@
 // Get the correct order suffix
-const th = m => m == "1" ? "st" : m == "2" ? "nd" : m == "3" ? "rd" : "th";
+const th = s => s == "1" ? "st" : s == "2" ? "nd" : s == "3" ? "rd" : "th";
 // Transform l to \ell if needed
-const l = m => m == "l" ? "\\ell" : m;
+const l = s => s == "l" ? "\\ell" : s;
 // Transform o to \infty if needed
-const o = m => m == "o" ? "\\infty" : m;
+const o = s => s == "o" ? "\\infty" : s;
 
 // Exported snippets
 export default [
