@@ -263,8 +263,8 @@ export default [
 {trigger: /ar\\(${HYP_TRIG}|${HYP_TRIG_NEW})/, replacement: "\\operatorname{ar[[0]]}", options: "mA", priority: 1},
 
 // Operations
-{trigger: /(?<!\\ar)([FGfg](_\{([\dijkmn]|\\ell)\})?)('*)([w-z])/, replacement: "[[0]][[3]]([[4]])", options: "mA"},
-{trigger: /([FGfg](_\{([\dijkmn]|\\ell)\})?)('*)\(([w-z])\)(\d)/, replacement: "[[0]][[3]]([[4]]_{[[5]]})", options: "mA"},
+{trigger: /(?<!\\ar)([FGfg](?:_\{(?:[\dijkmn]|\\ell)\})?)('*)([w-z])/, replacement: "[[0]][[1]]([[2]])", options: "mA"},
+{trigger: /([FGfg](?:_\{(?:[\dijkmn]|\\ell)\})?)('*)\(([w-z])\)(\d)/, replacement: "[[0]][[1]]([[2]]_{[[3]]})", options: "mA"},
 {trigger: /fuv/, replacement: "f = u + iv", options: "mA"},
 {trigger: /(w|z)(xy|ab)/, replacement: m => `${m[1]} = ${m[2][0]} + i${m[2][1]}`, options: "mA"},
 {trigger: /\\gamma([abt])/, replacement: "\\gamma([[0]])", options: "mA", priority: 1},
@@ -272,10 +272,10 @@ export default [
 //{trigger: /hom/, replacement: "\\mathrm{Hom}_{${0:K}}(${1:V}, ${2:W})", options: "mA"},
 //{trigger: /mx/, replacement: "M_{${0:m} \\times ${1:n}}(${3:K})", options: "mA"},
 {trigger: /11([i-n])/, replacement: m => `\\mathbb{1}_{${l(m[1])}}`, options: "mA"},
-{trigger: /\\mathbb\{1\}_\{([ijkmn]|\\ell)\}([2-9])/, replacement: "\\mathbb{1}_{[[1]]}", options: "mA"},
+{trigger: /\\mathbb\{1\}_\{(?:[ijkmn]|\\ell)\}([2-9])/, replacement: "\\mathbb{1}_{[[0]]}", options: "mA"},
 {trigger: /(C|L)([\di-o])/, replacement: m => `${m[1]}^{${l(o(m[2]))}}`, options: "mA"},
 {trigger: /(c?)(p?)([B-Db-d])([RSrs])([W-Zow-z])/, replacement: m => `${m[1] == "c" ? "\\overline{" : ""}${m[3].toUpperCase()}${m[2] == "p" ? "^{*}" : ""}_{${m[4]}}(${o(m[5])})${m[1] == "c" ? "}" : ""}`, options: "mA"},
-{trigger: /((\\overline\{)?[B-D](\^\{\*\})?)_\{([RSrs])\}\(([W-Zw-z])\)(\}?)(\d)/, replacement: "[[0]]_{[[3]]}([[4]]_{[[6]]})[[5]]", options: "mA"},
+{trigger: /((?:\\overline\{)?[B-D](?:\^\{\*\})?_\{[RSrs]\})\(([W-Zw-z])\)(\}?)(\d)/, replacement: "[[0]]([[1]]_{[[3]]})[[2]]", options: "mA"},
 {trigger: /csv/, replacement: "${0:v}_{${1:1}}, \\dots, ${0:v}_{${3:n}}$4", options: "mA"},
 {trigger: /te/, replacement: "\\text{$0}$1", options: "m"},
 {trigger: /text/, replacement: "\\text{$0}$1", options: "mA"},
