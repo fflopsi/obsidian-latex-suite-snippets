@@ -223,9 +223,9 @@ export default [
 // Auto letter subscript (multiple too)
 {trigger: /([A-Za-z])(\d)/, replacement: "[[0]]_{[[1]]}", options: "mA", priority: -1},
 {trigger: /([A-Za-z])_\{(\d+)\}(\d)/, replacement: "[[0]]_{[[1]][[2]]}", options: "mA"},
-{trigger: /\\(${DECO}){([A-Za-z]|\\${GREEK})}(\d)/, replacement: "\\[[0]]{[[1]]}_{[[2]]}", options: "mA"},
+{trigger: /(\\${DECO}){([A-Za-z]|\\${GREEK})}(\d)/, replacement: "[[0]]{[[1]]}_{[[2]]}", options: "mA"},
 // No symbol subscript
-{trigger: /\\(${SYMBOL}|${SHORT_SYMBOL})(\d)/, replacement: "\\[[0]] [[1]]", options: "mA"},
+{trigger: /(\\${SYMBOL}|${SHORT_SYMBOL})(\d)/, replacement: "[[0]] [[1]]", options: "mA"},
 // Letter attachments
 {trigger: /([A-Za-z]|(?:\\${GREEK}|${FUNCTION}|${TRIG}|${HYP_TRIG}) )invs/, replacement: m => `${tr(m[1])}^{-1}`, options: "mA"},
 {trigger: /([A-Za-z]|(?:\\${GREEK}|${FUNCTION}|${TRIG}|${HYP_TRIG}) )sr/, replacement: m => `${tr(m[1])}^{2}`, options: "mA"},
