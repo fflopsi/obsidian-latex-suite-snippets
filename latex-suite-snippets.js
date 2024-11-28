@@ -1,3 +1,5 @@
+// Get the correct order suffix
+const th = m => m == "1" ? "st" : m == "2" ? "nd" : m == "3" ? "rd" : "th";
 // Transform l to \ell if needed
 const l = m => m == "l" ? "\\ell" : m;
 // Transform o to \infty if needed
