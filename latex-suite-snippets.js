@@ -285,7 +285,7 @@ export default [
 {trigger: /\/\//, replacement: "\\frac{$0}{$1}$2", options: "mA"},
 {trigger: /ee/, replacement: "e^{$0}$1", options: "mA"},
 {trigger: /(id)/, replacement: "\\mathrm{[[0]]}", options: "mA"},
-{trigger: /(Re|Im|sgn|Tr|End|adj|rk|grad|div|rot|vol|spt|Sym|Alt|Arg|ord)/, replacement: "\\operatorname{[[0]]}", options: "mA"},
+{trigger: /(Re|Im|sgn|Tr|End|span|adj|rk|grad|div|rot|vol|spt|Sym|Alt|Arg|ord)/, replacement: "\\operatorname{[[0]]}", options: "mA"},
 {trigger: /\\operatorname\{Re\}s/, replacement: "\\operatorname{Res}", options: "mA"},
 
 // Symbols
