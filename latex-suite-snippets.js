@@ -4,6 +4,8 @@ const th = s => s == "1" ? "st" : s == "2" ? "nd" : s == "3" ? "rd" : "th";
 const l = s => s == "l" ? "\\ell" : s;
 // Transform o to \infty if needed
 const o = s => s == "o" ? "\\infty" : s;
+// Remove an added space (behind a greek letter)
+const tr = s => s.endsWith(" ") ? s.slice(0,-1) : s;
 
 // Exported snippets
 export default [
