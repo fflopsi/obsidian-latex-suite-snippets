@@ -140,6 +140,7 @@ export default [
 //{trigger: /(O)NB/, replacement: "[[0]]rthonormale Basis", options: "t", flags: "i"},
 
 // Order numbers
+{trigger: /([\d])\.\./, replacement: (s) => `${s[1]}<sup>${th(s[1])}</sup>`, options: "tA"},
 {trigger: /1st/, replacement: "1<sup>st</sup>", options: "tA"},
 {trigger: /2nd/, replacement: "2<sup>nd</sup>", options: "tA"},
 {trigger: /3rd/, replacement: "3<sup>rd</sup>", options: "tA"},
