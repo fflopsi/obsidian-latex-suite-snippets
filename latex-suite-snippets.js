@@ -1,3 +1,10 @@
+const greek = {
+  a: "alpha", b: "beta", g: "gamma", d: "delta", e: "epsilon",
+  z: "zeta", h: "eta", t: "theta", i: "iota",
+  k: "kappa", l: "lambda", m: "mu", n: "nu",
+  x: "xi", r: "rho", s: "sigma", u: "upsilon",
+  p: "phi", f: "phi", c: "chi", y: "psi", o: "omega", w: "omega",
+};
 // Get the correct order suffix
 const th = s => s == "1" ? "st" : s == "2" ? "nd" : s == "3" ? "rd" : "th";
 // Transform l to \ell if needed
@@ -6,6 +13,7 @@ const l = s => s == "l" ? "\\ell" : s;
 const o = s => s == "o" ? "\\infty" : s;
 // Remove an added space (behind a greek letter)
 const tr = s => s.endsWith(" ") ? s.slice(0,-1) : s;
+const gr = s => s === s.toUpperCase() ? greek[s.toLowerCase()].charAt(0).toUpperCase() + greek[s.toLowerCase()].slice(1) : greek[s];
 
 // Exported snippets
 export default [
@@ -204,30 +212,8 @@ export default [
 {trigger: /outp/, replacement: "\\ket{${0:\\psi}} \\bra{${0:\\psi}} $1", options: "mA"},
 
 // Greek letters
-{trigger: /@a/, replacement: "\\alpha", options: "mA"},
-{trigger: /@b/, replacement: "\\beta", options: "mA"},
-{trigger: /@(g)/, replacement: "\\[[0]]amma", options: "mA", flags: "i"},
-{trigger: /@(d)/, replacement: "\\[[0]]elta", options: "mA", flags: "i"},
-{trigger: /@e/, replacement: "\\epsilon", options: "mA"},
-{trigger: /:e/, replacement: "\\varepsilon", options: "mA"},
-{trigger: /@z/, replacement: "\\zeta", options: "mA"},
-{trigger: /@h/, replacement: "\\eta", options: "mA"},
-{trigger: /@(t)/, replacement: "\\[[0]]heta", options: "mA", flags: "i"},
-{trigger: /:t/, replacement: "\\vartheta", options: "mA"},
-{trigger: /@i/, replacement: "\\iota", options: "mA"},
-{trigger: /@k/, replacement: "\\kappa", options: "mA"},
-{trigger: /@(l)/, replacement: "\\[[0]]ambda", options: "mA", flags: "i"},
-{trigger: /@m/, replacement: "\\mu", options: "mA"},
-{trigger: /@n/, replacement: "\\nu", options: "mA"},
-{trigger: /@(x)/, replacement: "\\[[0]]i", options: "mA", flags: "i"},
-{trigger: /@r/, replacement: "\\rho", options: "mA"},
-{trigger: /:r/, replacement: "\\varrho", options: "mA"},
-{trigger: /@(s)/, replacement: "\\[[0]]igma", options: "mA", flags: "i"},
-{trigger: /@(u)/, replacement: "\\[[0]]psilon", options: "mA", flags: "i"},
-{trigger: /@(p)/, replacement: "\\[[0]]hi", options: "mA", flags: "i"},
-{trigger: /:p/, replacement: "\\varphi", options: "mA"},
-{trigger: /@c/, replacement: "\\chi", options: "mA"},
-{trigger: /@(o)/, replacement: "\\[[0]]mega", options: "mA", flags: "i"},
+{trigger: /@([a-ik-pr-uw-zDFGLOPSTUWXY])/, replacement: (m) => `\\${gr(m[1])}`, options: "mA"},
+{trigger: /:([ekprst])/, replacement: m => `\\var${gr(m[1])}`, options: "mA"},
 {trigger: /(o)me/, replacement: "\\[[0]]mega", options: "mA", flags: "i"},
 // Add backslash before greek letters and symbols
 {trigger: /(?<!\\)(${GREEK}|${SYMBOL})/, replacement: "\\[[0]]", options: "mA"},
