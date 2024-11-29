@@ -277,6 +277,7 @@ export default [
 {trigger: /(c?)(p?)([B-Db-d])([RSrs])([W-Zow-z])/, replacement: m => `${m[1] == "c" ? "\\overline{" : ""}${m[3].toUpperCase()}${m[2] == "p" ? "^{*}" : ""}_{${m[4]}}(${o(m[5])})${m[1] == "c" ? "}" : ""}`, options: "mA"},
 {trigger: /((?:\\overline\{)?[B-D](?:\^\{\*\})?_\{[RSrs]\})\(([W-Zw-z])\)(\}?)(\d)/, replacement: "[[0]]([[1]]_{[[3]]})[[2]]", options: "mA"},
 {trigger: /csv/, replacement: "${0:v}_{${1:1}}, \\dots, ${0:v}_{${3:n}}$4", options: "mA"},
+{trigger: /bin/, replacement: "\\binom{$0}{$1}$2", options: "mA"},
 {trigger: /te/, replacement: "\\text{$0}$1", options: "m"},
 {trigger: /text/, replacement: "\\text{$0}$1", options: "mA"},
 {trigger: /m?(bb|bf|cal|rm|scr)/, replacement: "\\math[[0]]{$0}$1", options: "mA", priority: -1},
