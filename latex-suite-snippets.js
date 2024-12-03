@@ -405,11 +405,6 @@ export default [
 {trigger: /(i{2,4})nt/, replacement: "\\[[0]]nt", options: "mA"},
 {trigger: /isnt/, replacement: "\\int", options: "mA", priority: 1},
 
-// These have some issues, especially matching too much despite the *? lazy matching operator  (but this only works in the forward direction, while I need it to work backwards, matching as few as possible from the end of the pattern towards the beginning
-//{trigger: /(\\left)?\(\s*([^,]*?)\s*,\s*([^,]*?)\s*(\\right)?\)22/, replacement: "\\begin{pmatrix}\n[[1]] \\\\\n[[2]]\n\\end{pmatrix}", options: "MA"},
-//{trigger: /(\\left)?\(\s*([^,]*?)\s*,\s*([^,]*?)\s*,\s*([^,]*?)\s*(\\right)?\)33/, replacement: "\\begin{pmatrix}\n[[1]] \\\\\n[[2]] \\\\\n[[3]]\n\\end{pmatrix}", options: "MA"},
-//{trigger: /([A-Za-z])\./, replacement: "_{[[0]]}", options: "mA"},
-
 // Misc
 //{trigger: /tayl/, replacement: "${0:f}(${1:x} + ${2:h}) = ${0:f}(${1:x}) + ${0:f}'(${1:x})${2:h} + ${0:f}''(${1:x}) \\frac{${2:h}^{2}}{2!} + \\dots$3", options: "mA"},
 ]
