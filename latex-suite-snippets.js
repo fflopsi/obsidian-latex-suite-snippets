@@ -379,22 +379,22 @@ export default [
 {trigger: /pprod/, replacement: "\\prod_{${0:n} = ${1:1}}^{${2:\\infty}} $3", options: "mA", priority: 1},
 
 // Derivatives
-{trigger: /der/, replacement: "\\frac{\\mathrm{d}${0:y}}{\\mathrm{d}${1:x}}$2", options: "m"},
-{trigger: /de([2-9])/, replacement: "\\frac{\\mathrm{d}^{[[0]]} ${0:y}}{\\mathrm{d}${1:x}^{[[0]]}}$2", options: "mA"},
-{trigger: /(?<!\\)de([A-Za-z])/, replacement: "\\frac{\\mathrm{d}}{\\mathrm{d}[[0]]}", options: "m"},
-{trigger: /(?<!\\)de([A-Za-z])([2-9])/, replacement: "\\frac{\\mathrm{d}^{[[1]]}}{\\mathrm{d}[[0]]^{[[1]]}}", options: "mA"},
-{trigger: /de([A-Za-z])([A-Za-z])/, replacement: "\\frac{\\mathrm{d}[[0]]}{\\mathrm{d}[[1]]}", options: "m"},
-{trigger: /de([A-Za-z])([A-Za-z])([2-9])/, replacement: "\\frac{\\mathrm{d}^{[[2]]}[[0]]}{\\mathrm{d}[[1]]^{[[2]]}}", options: "mA"},
-{trigger: /(?<!\\)de([A-Za-z])([A-Za-z])([A-Za-z])/, replacement: "\\frac{\\mathrm{d}^{2} [[0]]}{\\mathrm{d}[[1]] \\, \\mathrm{d}[[2]]}", options: "m"},
 {trigger: /dd([tx-z])/, replacement: "\\frac{\\mathrm{d}$0}{\\mathrm{d}[[0]]}$1", options: "mA"},
-{trigger: /par/, replacement: "\\frac{\\partial ${0:y}}{\\partial ${1:x}}$2", options: "m"},
-{trigger: /pa([2-9])/, replacement: "\\frac{\\partial^{[[0]]} ${0:y}}{\\partial ${1:x}^{[[0]]}}$2", options: "mA"},
-{trigger: /pa([A-Za-z])/, replacement: "\\frac{\\partial}{\\partial [[0]]}", options: "m"},
-{trigger: /pa([A-Za-z])([2-9])/, replacement: "\\frac{\\partial^{[[1]]}}{\\partial [[0]]^{[[1]]}}", options: "mA"},
-{trigger: /pa([A-Za-z])([A-Za-z])/, replacement: "\\frac{\\partial [[0]]}{\\partial [[1]]}", options: "m"},
-{trigger: /pa([A-Za-z])([A-Za-z])([2-9])/, replacement: "\\frac{\\partial^{[[2]]} [[0]]}{\\partial [[1]]^{[[2]]}}", options: "mA"},
-{trigger: /pa([A-Za-z])([A-Za-z])([A-Za-z])/, replacement: "\\frac{\\partial^{2} [[0]]}{\\partial [[1]] \\, \\partial [[2]]}", options: "m"},
-//{trigger: /der/, replacement: "\\lim_{${0:h} \\to ${1:0}} \\frac{$2}{${0:h}}", options: "mA"},
+{trigger: /([\di-n]?)(pa|de)([A-Za-z]{0,2})/, replacement: m => {
+  const d = m[2] == "pa" ? "\\partial" : "\\mathrm{d}";
+  const p = m[1] != "" ? `^{${l(m[1])}}` : "";
+  const f = m[3].length == 2 ? m[3].charAt(0) : "${0:y}";
+  const ds = m[3] != "" ? m[3].slice(-1) : "${1:x}";
+  return `\\frac{${d}${p}${m[2] == "pa" && p == "" ? " " : ""}${f}}{${d}${m[2] == "pa" ? " " : ""}${ds}${p}}$2`;
+}, options: "m"},
+{trigger: /(?<!\\)(pa|de)([A-Za-z])([A-Za-z]{2,})/, replacement: m => {
+  const d = m[1] == "pa" ? "\\partial" : "\\mathrm{d}";
+  let ds = "";
+  for (let c of m[3].slice(1)) {
+    ds += ` \\, ${d}${m[1] == "pa" ? " " : ""}${c}`;
+  }
+  return `\\frac{${d}^{${m[3].length}}${m[2]}}{${d}${m[1] == "pa" ? " " : ""}${m[3].charAt(0)}${ds}}`;
+}, options: "m"},
 
 // Integrals
 {trigger: /int/, replacement: "\\int $0 \\, \\mathrm{d}${1:x}", options: "mA"},
