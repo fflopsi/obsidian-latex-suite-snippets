@@ -226,13 +226,14 @@ export default [
 // No symbol subscript
 {trigger: /(\\${SYMBOL}|${SHORT_SYMBOL})(\d)/, replacement: "[[0]] [[1]]", options: "mA"},
 // Letter attachments
-{trigger: /([A-Za-z]|(?:\\${GREEK}|${FUNCTION}|${TRIG}|${HYP_TRIG}) )invs/, replacement: m => `${tr(m[1])}^{-1}`, options: "mA"},
-{trigger: /([A-Za-z]|(?:\\${GREEK}|${FUNCTION}|${TRIG}|${HYP_TRIG}) )sr/, replacement: m => `${tr(m[1])}^{2}`, options: "mA"},
-{trigger: /([A-Za-z]|(?:\\${GREEK}|${FUNCTION}|${TRIG}|${HYP_TRIG}) )cb/, replacement: m => `${tr(m[1])}^{3}`, options: "mA"},
-{trigger: /([A-Za-z]|\\${GREEK} )conj|dual/, replacement: m => `${tr(m[1])}^{*}`, options: "mA"},
-{trigger: /([A-Za-z]|\\${GREEK} )tpd/, replacement: m => `${tr(m[1])}^{\\top}`, options: "mA"},
-{trigger: /([A-Za-z]|\\${GREEK} )ani/, replacement: m => `${tr(m[1])}^{\\perp}`, options: "mA"},
-{trigger: /([A-Za-z]|\\${GREEK} )sts/, replacement: m => `${tr(m[1])}_\\text{$0}$1`, options: "mA"},
+{trigger: /(\S|(?:\\${GREEK}|${FUNCTION}|${TRIG}|${HYP_TRIG}) )invs/, replacement: m => `${tr(m[1])}^{-1}`, options: "mA"},
+{trigger: /(\S|(?:\\${GREEK}|${FUNCTION}|${TRIG}|${HYP_TRIG}) )sr/, replacement: m => `${tr(m[1])}^{2}`, options: "mA"},
+{trigger: /(\S|(?:\\${GREEK}|${FUNCTION}|${TRIG}|${HYP_TRIG}) )cb/, replacement: m => `${tr(m[1])}^{3}`, options: "mA"},
+{trigger: /(\S|\\${GREEK} )conj|dual/, replacement: m => `${tr(m[1])}^{*}`, options: "mA"},
+{trigger: /(\S|\\${GREEK} )compl/, replacement: m => `${tr(m[1])}^{\\complement}`, options: "mA"},
+{trigger: /(\S|\\${GREEK} )tpd/, replacement: m => `${tr(m[1])}^{\\top}`, options: "mA"},
+{trigger: /(\S|\\${GREEK} )ani/, replacement: m => `${tr(m[1])}^{\\perp}`, options: "mA"},
+{trigger: /(\S|\\${GREEK} )sts/, replacement: m => `${tr(m[1])}_\\text{$0}$1`, options: "mA"},
 // Convert decorator after letter
 {trigger: /([A-Za-z]|\\${GREEK} )(${DECO})/, replacement: m => `\\${m[2]}{${tr(m[1])}}`, options: "mA"},
 {trigger: /([A-Za-z]|\\${GREEK} )ck/, replacement: m => `\\check{${tr(m[1])}}`, options: "mA"},
@@ -240,7 +241,6 @@ export default [
 {trigger: /([A-Za-z]|\\${GREEK} )lbar/, replacement: m => `\\overline{${tr(m[1])}}`, options: "mA", priority: 1},
 {trigger: /([A-Za-z]|\\${GREEK} )ring/, replacement: m => `\\mathring{${tr(m[1])}}`, options: "mA"},
 {trigger: /([A-Za-z]|\\${GREEK} )und/, replacement: m => `\\underline{${tr(m[1])}}`, options: "mA"},
-{trigger: /([A-Za-z]|\\${GREEK} )compl/, replacement: m => `${tr(m[1])}^{\\complement}`, options: "mA"},
 // Free standing decorators
 {trigger: /(\^|_)/, replacement: "[[0]]{$0}$1", options: "mA"},
 {trigger: /(${DECO})/, replacement: "\\[[0]]{$0}$1", options: "mA"},
