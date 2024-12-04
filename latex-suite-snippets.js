@@ -356,7 +356,7 @@ export default [
 {trigger: /para/, replacement: "\\parallel", options: "mA"},
 {trigger: /(c|k)onst/, replacement: "\\text{[[0]]onst.}", options: "mA"},
 
-{trigger: /([abcfgu-z])([i-n])\2/, replacement: m => `${m[1]}_{${l(m[2])}}`, options: "mA", priority: 1},
+{trigger: /([abcfgu-z]|\\${GREEK} )([i-n])\2/, replacement: m => `${tr(m[1])}_{${l(m[2])}}`, options: "mA", priority: 1},
 {trigger: /\\xii/, replacement: "x_{i}", options: "mA", priority: 2},
 {trigger: /([abcfgu-z]|${GREEK} )([i-n]?)(p|m)([1-3])/, replacement: m => `${tr(m[1])}_{${m[2] == "" ? "n" : l(m[2])}${m[3] == "p" ? "+" : "-"}${m[4]}}`, options: "mA"},
 //{trigger: /([abcfgu-z])nk/, replacement: "[[0]]_{n_{k}}", options: "mA"},
