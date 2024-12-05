@@ -189,15 +189,11 @@ export default [
 {trigger: /set/, replacement: "\\{ $0 \\}$1", options: "mA"},
 {trigger: /mo(o?)d/, replacement: m => `${m[1] == "o" ? "\\left" : ""}| $0 ${m[1] == "o" ? "\\right" : ""}|$1`, options: "mA"},
 {trigger: /no(o?)rm/, replacement: m => `${m[1] == "o" ? "\\left" : ""}\\| $0 ${m[1] == "o" ? "\\right" : ""}\\|$1`, options: "mA"},
-{trigger: /\(/, replacement: "($0)$1", options: "mA"},
-{trigger: /\{/, replacement: "{$0}$1", options: "mA"},
-{trigger: /\[/, replacement: "[$0]$1", options: "mA"},
-{trigger: /lr\(/, replacement: "\\left( $0 \\right)$1", options: "mA"},
-{trigger: /lr\{/, replacement: "\\left\\{ $0 \\right\\}$1", options: "mA"},
-{trigger: /lr\[/, replacement: "\\left[ $0 \\right]$1", options: "mA"},
-{trigger: /lra/, replacement: "\\left< $0 \\right> $1", options: "mA"},
-{trigger: /lrf/, replacement: "\\lfloor $0 \\rfloor$1", options: "mA"},
-{trigger: /lrc/, replacement: "\\lceil $0 \\rceil$1", options: "mA"},
+{trigger: /([\(\[\{])/, replacement: m => `${m[1]}$0${m[1] == "(" ? String.fromCharCode(m[1].charCodeAt(0)+1) : String.fromCharCode(m[1].charCodeAt(0)+2)}$1`, options: "mA"},
+{trigger: /lr([afc])/, replacement: m => {
+  const br = { a: "angle", c: "ceil", f: "floor", };
+  return `\\l${br[m[1]]} $0 \\r${br[m[1]]}$1`;
+}, options: "mA"},
 
 // Physics
 {trigger: /pu/, replacement: "\\pu{$0}$1", options: "mA"},
