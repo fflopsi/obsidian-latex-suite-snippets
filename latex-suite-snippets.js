@@ -91,6 +91,7 @@ export default [
 {trigger: /(D)ia/, replacement: "[[0]]iagonal", options: "t", flags: "i"},
 {trigger: /(D)im/, replacement: "[[0]]imension", options: "t", flags: "i"},
 {trigger: /(T)ran?s?/, replacement: "[[0]]ransformation", options: "t", flags: "i"},
+{trigger: /(D)ist?/, replacement: "[[0]]istribution", options: "t", flags: "i"},
 {trigger: /Cau?/, replacement: "Cauchy", options: "t", flags: "i"},
 {trigger: /Lip/, replacement: "Lipschitz", options: "t", flags: "i", priority: 1},
 {trigger: /Tay/, replacement: "Taylor", options: "t", flags: "i", priority: 1},
@@ -148,7 +149,7 @@ export default [
 //{trigger: /(I)P/, replacement: "[[0]]nneres Produkt", options: "t", flags: "i"},
 {trigger: /(o)rth?g/, replacement: "[[0]]rthogonal", options: "t", flags: "i"},
 {trigger: /(o)rt(h?)n/, replacement: "[[0]]rthonormal", options: "t", flags: "i"},
-//{trigger: /(O)NB/, replacement: "[[0]]rthonormale Basis", options: "t", flags: "i"},
+{trigger: /ONB/, replacement: "Orthonormalbasis", options: "t", flags: "i"},
 
 // Order numbers
 {trigger: /([\d])\.\./, replacement: m => `${m[1]}<sup>${th(m[1])}</sup>`, options: "tA"},
