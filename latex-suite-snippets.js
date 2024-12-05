@@ -229,7 +229,7 @@ export default [
 {trigger: /(\S|(?:\\${GREEK}|${FUNCTION}|${TRIG}|${HYP_TRIG}) )invs/, replacement: m => `${tr(m[1])}^{-1}`, options: "mA"},
 {trigger: /(\S|(?:\\${GREEK}|${FUNCTION}|${TRIG}|${HYP_TRIG}) )sr/, replacement: m => `${tr(m[1])}^{2}`, options: "mA"},
 {trigger: /(\S|(?:\\${GREEK}|${FUNCTION}|${TRIG}|${HYP_TRIG}) )cb/, replacement: m => `${tr(m[1])}^{3}`, options: "mA"},
-{trigger: /(\S|\\${GREEK} )conj|dual/, replacement: m => `${tr(m[1])}^{*}`, options: "mA"},
+{trigger: /(\S|\\${GREEK} )(?:conj|dual)/, replacement: m => `${tr(m[1])}^{*}`, options: "mA"},
 {trigger: /(\S|\\${GREEK} )compl/, replacement: m => `${tr(m[1])}^{\\complement}`, options: "mA"},
 {trigger: /(\S|\\${GREEK} )tpd/, replacement: m => `${tr(m[1])}^{\\top}`, options: "mA"},
 {trigger: /(\S|\\${GREEK} )ani/, replacement: m => `${tr(m[1])}^{\\perp}`, options: "mA"},
