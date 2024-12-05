@@ -1,3 +1,4 @@
+// Mapping greek to latin letters
 const greek = {
   a: "alpha", b: "beta", g: "gamma", d: "delta", e: "epsilon",
   z: "zeta", h: "eta", t: "theta", i: "iota",
@@ -13,6 +14,7 @@ const l = s => s == "l" ? "\\ell" : s;
 const o = s => s == "o" ? "\\infty" : s;
 // Remove an added space (behind a greek letter)
 const tr = s => s.endsWith(" ") ? s.slice(0,-1) : s;
+// Retrieve corresponding greek letter, uppercase if necessary
 const gr = s => s === s.toUpperCase() ? greek[s.toLowerCase()].charAt(0).toUpperCase() + greek[s.toLowerCase()].slice(1) : greek[s];
 
 // Exported snippets
