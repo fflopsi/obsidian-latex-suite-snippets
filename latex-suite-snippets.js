@@ -293,7 +293,7 @@ export default [
 {trigger: /(id)/, replacement: "\\mathrm{[[0]]}", options: "mA"},
 {trigger: /(Re|Im|sgn|Tr|End|span|adj|rk|grad|div|rot|vol|spt|Sym|Alt|Arg|ord)/, replacement: "\\operatorname{[[0]]}", options: "mA"},
 {trigger: /\\operatorname\{Re\}s/, replacement: "\\operatorname{Res}", options: "mA"},
-{trigger: /L^\{\\infty\}g/, replacement: "\\operatorname{Log}", options: "mA"},
+{trigger: /L\^\{\\infty\}g/, replacement: "\\operatorname{Log}", options: "mA"},
 
 // Symbols
 // Fix ' usage for derivatives to supress autopair
