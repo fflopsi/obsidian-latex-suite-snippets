@@ -374,6 +374,7 @@ export default [
 {trigger: /\\mathbb\{C\}C/, replacement: "\\hat{\\mathbb{C}}", options: "mA"},
 {trigger: /([FM])\1/, replacement: "\\mathcal{[[0]]}", options: "mA"},
 {trigger: /([H])\1/, replacement: "\\mathscr{[[0]]}", options: "mA"},
+{trigger: /\\mathbb\{S\}S/, replacement: "\\mathscr{S}", options: "mA"},
 
 // Limits
 {trigger: /li([msn])/, replacement: m => `\\lim${m[1] == "s" ? "sup" : m[1] == "n" ? "inf" : ""}_{$\{0:n\} \\to $\{1:\\infty\}} $2`, options: "mA"},
