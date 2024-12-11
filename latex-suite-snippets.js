@@ -90,6 +90,7 @@ export default [
 {trigger: /(p)os?/, replacement: "[[0]]ositiv", options: "t", flags: "i"},
 {trigger: /(n)eg?/, replacement: "[[0]]egativ", options: "t", flags: "i"},
 {trigger: /(c|k)on(s|st)?/, replacement: "[[0]]onstant", options: "t", flags: "i", priority: 1},
+{trigger: /(L)og/, replacement: "[[0]]ogarithm", options: "t", flags: "i"},
 {trigger: /(S)up/, replacement: "[[0]]upremum", options: "t", flags: "i"},
 {trigger: /(I)nf/, replacement: "[[0]]nfimum", options: "t", flags: "i"},
 {trigger: /(M)ax/, replacement: "[[0]]aximum", options: "t", flags: "i"},
