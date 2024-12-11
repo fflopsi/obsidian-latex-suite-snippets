@@ -369,7 +369,7 @@ export default [
 //{trigger: /([abcfgu-z])nk/, replacement: "[[0]]_{n_{k}}", options: "mA"},
 {trigger: /-1([i-n])/, replacement: m => `(-1)^{${l(m[1])}}`, options: "mA"},
 
-{trigger: /([NZQRCS])\1/, replacement: "\\mathbb{[[0]]}", options: "mA"},
+{trigger: /([DNZQRCS])\1/, replacement: "\\mathbb{[[0]]}", options: "mA"},
 {trigger: /\\mathbb\{([NZQRCS])\}([2-9a-z+-])/, replacement: "\\mathbb{[[0]]}^{[[1]]}", options: "mA"},
 {trigger: /\\mathbb\{N\}0/, replacement: "\\mathbb{N}_{0}", options: "mA"},
 {trigger: /\\mathbb\{C\}C/, replacement: "\\hat{\\mathbb{C}}", options: "mA"},
