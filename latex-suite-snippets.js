@@ -37,7 +37,7 @@ export default [
 {trigger: /(c)or/, replacement: "[[0]]orollary", options: "t", flags: "i"},
 {trigger: /(s)ol/, replacement: "[[0]]olution", options: "t", flags: "i"},
 {trigger: /(e)q/, replacement: "[[0]]quation", options: "t", flags: "i"},
-{trigger: /(e)qui?/, replacement: "[[0]]quivalen", options: "t", flags: "i"},
+{trigger: /(e)qu(i|iv)?/, replacement: "[[0]]quivalen", options: "t", flags: "i"},
 {trigger: /(t)ri/, replacement: "[[0]]riangle inequality", options: "t", flags: "i"},
 {trigger: /MVT/, replacement: "Mean Value Theorem", options: "t", flags: "i"},
 {trigger: /(f)unc?/, replacement: "[[0]]unction", options: "t", flags: "i"},
