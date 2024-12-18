@@ -227,6 +227,8 @@ export default [
 // Insert space after greek letters and symbols
 {trigger: /\\(${GREEK}|${SYMBOL}|${SHORT_SYMBOL})([A-Za-z])/, replacement: "\\[[0]] [[1]]", options: "mA"},
 //{trigger: /\\(${GREEK})\./, replacement: "_{\\[[0]]}", options: "mA", priority: 1},
+
+// Letter decorations
 // Auto letter subscript (multiple too)
 {trigger: /([A-Za-z])(\d)/, replacement: "[[0]]_{[[1]]}", options: "mA", priority: -1},
 {trigger: /([A-Za-z])_\{(\d+)\}(\d)/, replacement: "[[0]]_{[[1]][[2]]}", options: "mA"},
