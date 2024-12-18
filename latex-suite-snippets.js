@@ -6,6 +6,13 @@ const l = s => s == "l" ? "\\ell" : s;
 const o = s => s == "o" ? "\\infty" : s;
 // Remove an added space (behind a greek letter)
 const tr = s => s.endsWith(" ") ? s.slice(0,-1) : s;
+// Retrieve full decorator from abbreviation
+function d(s) {
+  const deco = {
+    ck: "check", dvc: "dot vec", ddvc: "ddot vec", lbr: "overline", ring: "mathring", und: "underline", wht: "widehat"
+  };
+  return Object.keys(deco).contains(s) ? deco[s] : s;
+}
 // Retrieve corresponding greek letter, uppercase if necessary
 function gr(s) {
   const greek = {
@@ -245,12 +252,16 @@ export default [
 {trigger: /(\S|\\${GREEK} )ani/, replacement: m => `${tr(m[1])}^{\\perp}`, options: "mA"},
 {trigger: /(\S|\\${GREEK} )sts/, replacement: m => `${tr(m[1])}_\\text{$0}$1`, options: "mA"},
 // Convert decorator after letter
-{trigger: /([A-Za-z]|\\${GREEK} )(${DECO})/, replacement: m => `\\${m[2]}{${tr(m[1])}}`, options: "mA"},
-{trigger: /([A-Za-z]|\\${GREEK} )ck/, replacement: m => `\\check{${tr(m[1])}}`, options: "mA"},
-{trigger: /([A-Za-z]|\\${GREEK} )(dd?)vec/, replacement: m => `\\${m[2]}ot{\\vec{${tr(m[1])}}}`, options: "mA", priority: 2},
-{trigger: /([A-Za-z]|\\${GREEK} )lbar/, replacement: m => `\\overline{${tr(m[1])}}`, options: "mA", priority: 1},
-{trigger: /([A-Za-z]|\\${GREEK} )ring/, replacement: m => `\\mathring{${tr(m[1])}}`, options: "mA"},
-{trigger: /([A-Za-z]|\\${GREEK} )und/, replacement: m => `\\underline{${tr(m[1])}}`, options: "mA"},
+// This first option doesn't work for some unknown reason (matching one variable more than once?), so I literally copied the definition of DECO
+// {trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*))(${DECO}|ck|dvec|ddvec|lbar|ring|und)/, replacement: m => (m[2].match(/\{/g)||[]).length == m[3].length ? `\\${m[4]}{${tr(m[1])}}` : `${m[1]}\\${m[4]}{$0}$1`, options: "mA"},
+{trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*))((?:bar|check|dot|ddot|hat|mathring|tilde|vec|overline|ck|dvc|ddvc|lbr|ring|und|wht))/, replacement: m => {
+  const len = d(m[4]).split(' ').length;
+  var dec = "";
+  for (const st of d(m[4]).split(' ')) {
+    dec = `${dec}\\${st}{`;
+  }
+  return (m[2].match(/\{/g) || []).length == m[3].length ? `${dec}${tr(m[1])}${"}".repeat(len)}` : `${m[1]}\\${m[4]}{$0}$1`;
+}, options: "mA"},
 // Free standing decorators
 {trigger: /(\^|_)/, replacement: "[[0]]{$0}$1", options: "mA"},
 {trigger: /(${DECO})/, replacement: "\\[[0]]{$0}$1", options: "mA"},
