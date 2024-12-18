@@ -254,8 +254,8 @@ export default [
 // Free standing decorators
 {trigger: /(\^|_)/, replacement: "[[0]]{$0}$1", options: "mA"},
 {trigger: /(${DECO})/, replacement: "\\[[0]]{$0}$1", options: "mA"},
-{trigger: /(dd?)vec/, replacement: "\\[[0]]ot{\\vec{$0}}$1", options: "mA", priority: 2},
-{trigger: /lbar/, replacement: "\\overline{$0}$1", options: "mA", priority: 1},
+{trigger: /(dd?)vc/, replacement: "\\[[0]]ot{\\vec{$0}}$1", options: "mA"},
+{trigger: /lbr/, replacement: "\\overline{$0}$1", options: "mA"},
 {trigger: /ring/, replacement: "\\mathring{$0}$1", options: "mA"},
 {trigger: /und/, replacement: "\\underline{$0}$1", options: "mA"},
 {trigger: /wht/, replacement: "\\widehat{$0}$1", options: "mA"},
