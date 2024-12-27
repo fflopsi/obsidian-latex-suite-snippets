@@ -202,9 +202,9 @@ export default [
 {trigger: /coi/, replacement: "[$0)$1", options: "mA"},
 {trigger: /oci/, replacement: "($0]$1", options: "mA"},
 {trigger: /set/, replacement: "\\{ $0 \\}$1", options: "mA"},
-{trigger: /mo(o?)d/, replacement: m => `${m[1] == "o" ? "\\left" : ""}| $0 ${m[1] == "o" ? "\\right" : ""}|$1`, options: "mA"},
-{trigger: /no(o?)rm/, replacement: m => `${m[1] == "o" ? "\\left" : ""}\\| $0 ${m[1] == "o" ? "\\right" : ""}\\|$1`, options: "mA"},
 {trigger: /([\(\[\{])/, replacement: m => `${m[1]}$0${m[1] == "(" ? ")" : String.fromCharCode(m[1].charCodeAt(0)+2)}$1`, options: "mA"},
+{trigger: /mod/, replacement: "\\lvert $0 \\rvert$1", options: "mA"},
+{trigger: /norm/, replacement: "\\lVert $0 \\rVert$1", options: "mA"},
 {trigger: /lr([afc])/, replacement: m => {
   const br = { a: "angle", c: "ceil", f: "floor", };
   return `\\l${br[m[1]]} $0 \\r${br[m[1]]}$1`;
