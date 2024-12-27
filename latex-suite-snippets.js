@@ -391,7 +391,6 @@ export default [
 
 // Limits
 {trigger: /li([msn])/, replacement: m => `\\lim${m[1] == "s" ? "sup" : m[1] == "n" ? "inf" : ""}_{$\{0:n\} \\to $\{1:\\infty\}} $2`, options: "mA"},
-
 // Sums and products
 {trigger: /(ssum|pprod)/, replacement: m => `\\${m[1].slice(1)}_{$\{0:n\} = $\{1:1\}}^{$\{2:\\infty\}} $3`, options: "mA", priority: 1},
 
@@ -421,7 +420,4 @@ export default [
 {trigger: /oint/, replacement: "\\oint", options: "mA"},
 {trigger: /(i{2,4})nt/, replacement: "\\[[0]]nt", options: "mA"},
 {trigger: /isnt/, replacement: "\\int", options: "mA", priority: 1},
-
-// Misc
-//{trigger: /tayl/, replacement: "${0:f}(${1:x} + ${2:h}) = ${0:f}(${1:x}) + ${0:f}'(${1:x})${2:h} + ${0:f}''(${1:x}) \\frac{${2:h}^{2}}{2!} + \\dots$3", options: "mA"},
 ]
