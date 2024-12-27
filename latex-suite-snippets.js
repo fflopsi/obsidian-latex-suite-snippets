@@ -235,7 +235,7 @@ export default [
 {trigger: /\\(${GREEK}|${SYMBOL}|${SHORT_SYMBOL})([A-Za-z])/, replacement: "\\[[0]] [[1]]", options: "mA"},
 
 // Letter decorations
-// Auto number subscript (multiple too)
+// Number subscript (multiple too)
 {trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*))(\d)/, replacement: m => (m[2].match(/\{/g) || []).length == m[3].length ? `${tr(m[1])}_{${m[4]}}` : `${m[1]}${m[4]}`, options: "mA", priority: -1},
 {trigger: /_\{(\d+)\}(\}*)(\d)/, replacement: "_{[[0]][[2]]}[[1]]", options: "mA"},
 // No subscript for symbols
