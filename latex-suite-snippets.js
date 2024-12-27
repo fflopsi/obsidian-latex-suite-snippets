@@ -244,13 +244,8 @@ export default [
 // No subscript for symbols
 {trigger: /(\\${SYMBOL}|${SHORT_SYMBOL})(\d)/, replacement: "[[0]] [[1]]", options: "mA"},
 // Letter attachments
-{trigger: /(\S|(?:\\${GREEK}|${FUNCTION}|${TRIG}|${HYP_TRIG}) )invs/, replacement: m => `${tr(m[1])}^{-1}`, options: "mA"},
-{trigger: /(\S|(?:\\${GREEK}|${FUNCTION}|${TRIG}|${HYP_TRIG}) )sr/, replacement: m => `${tr(m[1])}^{2}`, options: "mA"},
-{trigger: /(\S|(?:\\${GREEK}|${FUNCTION}|${TRIG}|${HYP_TRIG}) )cb/, replacement: m => `${tr(m[1])}^{3}`, options: "mA"},
-{trigger: /(\S|\\${GREEK} )(?:conj|dual)/, replacement: m => `${tr(m[1])}^{*}`, options: "mA"},
-{trigger: /(\S|\\${GREEK} )compl/, replacement: m => `${tr(m[1])}^{\\complement}`, options: "mA"},
-{trigger: /(\S|\\${GREEK} )tpd/, replacement: m => `${tr(m[1])}^{\\top}`, options: "mA"},
-{trigger: /(\S|\\${GREEK} )ani/, replacement: m => `${tr(m[1])}^{\\perp}`, options: "mA"},
+{trigger: /(\S|(?:\\${GREEK}|${FUNCTION}|${TRIG}|${HYP_TRIG}) )(invs|sr|cb)/, replacement: m => `${tr(m[1])}^{${m[2] == "invs" ? "-1" : m[2] == "sr" ? "2" : "3"}}`, options: "mA"},
+{trigger: /(\S|\\${GREEK} )(tpd|compl|conj|dual)/, replacement: m => `${tr(m[1])}^{${m[2] == "tpd" ? "\\top" : m[2] == "compl" ? "\\complement" : m[2] == "ani" ? "\\perp" : "*"}}`, options: "mA"},
 {trigger: /(\S|\\${GREEK} )sts/, replacement: m => `${tr(m[1])}_\\text{$0}$1`, options: "mA"},
 // Convert decorator after letter
 // I needed to expand DECO for the second match, as matching it doesn't work for some unknown reason (matching one variable more than once?)
