@@ -238,7 +238,7 @@ export default [
 // Auto number subscript (multiple too)
 {trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*))(\d)/, replacement: m => (m[2].match(/\{/g) || []).length == m[3].length ? `${tr(m[1])}_{${m[4]}}` : `${m[1]}${m[4]}`, options: "mA", priority: -1},
 {trigger: /_\{(\d+)\}(\}*)(\d)/, replacement: "_{[[0]][[2]]}[[1]]", options: "mA"},
-// No symbol subscript
+// No subscript for symbols
 {trigger: /(\\${SYMBOL}|${SHORT_SYMBOL})(\d)/, replacement: "[[0]] [[1]]", options: "mA"},
 // Letter attachments
 {trigger: /(\S|(?:\\${GREEK}|${FUNCTION}|${TRIG}|${HYP_TRIG}) )invs/, replacement: m => `${tr(m[1])}^{-1}`, options: "mA"},
