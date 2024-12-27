@@ -6,6 +6,6 @@ TRIG: "(?:sin|cos|tan|cot|sec|csc|arcsin|arccos|arctan)",
 TRIG_NEW: "(?:arccot|arcsec|arccsc)",
 HYP_TRIG: "(?:sinh|cosh|tanh|coth)",
 HYP_TRIG_NEW: "(?:sech|csch)",
-SYMBOL: "(?:exp|ln|log|dim|ker|arg|det|infty|dots|cdots|ddots|vdots|uparrow|downarrow|updownarrow|leftarrow|rightarrow|leftrightarrow|nearrow|nwarrow|searrow|swarrow|mapsto|setminus|mid|cap|cup|bigcap|bigcup|land|lor|subset|subseteq|subsetneq|supset|supseteq|supsetneq|implies|impliedby|iff|exists|forall|square|neq|leq|geq|ll|gg|sim|simeq|approx|equiv|cong|propto|cdot|oplus|ominus|odot|otimes|oslash|times|star|perp|parallel|neg|quad|qquad|circ|max|min|sup|inf|sum|prod|notin)",
+SYMBOL: "(?:exp|ln|log|dim|ker|arg|det|infty|dots|cdots|ddots|vdots|uparrow|downarrow|updownarrow|leftarrow|rightarrow|leftrightarrow|nearrow|nwarrow|searrow|swarrow|mapsto|setminus|mid|cap|cup|bigcap|bigcup|land|lor|subset|subseteq|subsetneq|supset|supseteq|supsetneq|implies|impliedby|iff|exists|forall|square|neq|leq|geq|ll|gg|sim|simeq|approx|equiv|cong|propto|cdot|oplus|ominus|odot|otimes|oslash|times|star|perp|parallel|neg|quad|qquad|circ|max|min|sup|inf|sum|prod|notin|lvert|rvert|lVert|rVert|langle|rangle|lceil|rceil|lfloor|rfloor)",
 SHORT_SYMBOL: "(?:to|pm|mp|in|ni)",
 }
