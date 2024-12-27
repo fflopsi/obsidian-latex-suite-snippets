@@ -258,12 +258,7 @@ export default [
 // Free standing decorators
 {trigger: /(\^|_|;;|,,)/, replacement: m => `${m[1] == ";;" ? "^" : m[1] == ",," ? "_" : m[1]}{$0}$1`, options: "mA"},
 {trigger: /(${DECO})/, replacement: "\\[[0]]{$0}$1", options: "mA"},
-{trigger: /(dd?)vc/, replacement: "\\[[0]]ot{\\vec{$0}}$1", options: "mA"},
-{trigger: /lbr/, replacement: "\\overline{$0}$1", options: "mA"},
-{trigger: /ring/, replacement: "\\mathring{$0}$1", options: "mA"},
-{trigger: /wht/, replacement: "\\widehat{$0}$1", options: "mA"},
-{trigger: /wtd/, replacement: "\\widetilde{$0}$1", options: "mA"},
-{trigger: /und/, replacement: "\\underline{$0}$1", options: "mA"},
+{trigger: /(cc|lbr|ring|und|wht|wtd)/, replacement: m => `\\${d(m[1])}{$0}$1`, options: "mA"},
 
 // Trigonometric functions
 // Add \ before trig functions
