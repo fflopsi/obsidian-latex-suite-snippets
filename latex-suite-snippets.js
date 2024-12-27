@@ -263,7 +263,7 @@ export default [
   return (m[2].match(/\{/g) || []).length == m[3].length ? `${dec}${tr(m[1])}${"}".repeat(len)}` : `${m[1]}\\${m[4]}{$0}$1`;
 }, options: "mA"},
 // Free standing decorators
-{trigger: /(\^|_)/, replacement: "[[0]]{$0}$1", options: "mA"},
+{trigger: /(\^|_|;;|,,)/, replacement: m => `${m[1] == ";;" ? "^" : m[1] == ",," ? "_" : m[1]}{$0}$1`, options: "mA"},
 {trigger: /(${DECO})/, replacement: "\\[[0]]{$0}$1", options: "mA"},
 {trigger: /(dd?)vc/, replacement: "\\[[0]]ot{\\vec{$0}}$1", options: "mA"},
 {trigger: /lbr/, replacement: "\\overline{$0}$1", options: "mA"},
