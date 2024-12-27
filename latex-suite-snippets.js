@@ -255,9 +255,7 @@ export default [
 {trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*))((?:bar|check|dot|ddot|hat|mathring|overline|tilde|vec|widehat|widetilde|cc|dvc|ddvc|lbr|ring|wht|wtd))/, replacement: m => {
   const len = d(m[4]).split(' ').length;
   var dec = "";
-  for (const st of d(m[4]).split(' ')) {
-    dec = `${dec}\\${st}{`;
-  }
+  for (const st of d(m[4]).split(' ')) dec = `${dec}\\${st}{`;
   return (m[2].match(/\{/g) || []).length == m[3].length ? `${dec}${tr(m[1])}${"}".repeat(len)}` : `${m[1]}\\${m[4]}{$0}$1`;
 }, options: "mA"},
 // Free standing decorators
