@@ -235,10 +235,9 @@ export default [
 {trigger: /\\(${GREEK}|${SYMBOL}|${SHORT_SYMBOL})([A-Za-z])/, replacement: "\\[[0]] [[1]]", options: "mA"},
 
 // Letter decorations
-// Auto letter subscript (multiple too)
-{trigger: /([A-Za-z])(\d)/, replacement: "[[0]]_{[[1]]}", options: "mA", priority: -1},
-{trigger: /([A-Za-z])_\{(\d+)\}(\d)/, replacement: "[[0]]_{[[1]][[2]]}", options: "mA"},
-{trigger: /(\\${DECO}){([A-Za-z]|\\${GREEK})}(\d)/, replacement: "[[0]]{[[1]]}_{[[2]]}", options: "mA"},
+// Auto number subscript (multiple too)
+{trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*))(\d)/, replacement: m => (m[2].match(/\{/g) || []).length == m[3].length ? `${tr(m[1])}_{${m[4]}}` : `${m[1]}${m[4]}`, options: "mA", priority: -1},
+{trigger: /_\{(\d+)\}(\}*)(\d)/, replacement: "_{[[0]][[2]]}[[1]]", options: "mA"},
 // No symbol subscript
 {trigger: /(\\${SYMBOL}|${SHORT_SYMBOL})(\d)/, replacement: "[[0]] [[1]]", options: "mA"},
 // Letter attachments
