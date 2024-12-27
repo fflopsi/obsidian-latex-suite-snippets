@@ -1,6 +1,6 @@
 export default {
 GREEK: "(?:alpha|beta|gamma|Gamma|delta|Delta|epsilon|varepsilon|zeta|eta|theta|vartheta|Theta|iota|kappa|varkappa|lambda|Lambda|mu|nu|xi|Xi|omicron|pi|varpi|Pi|rho|varrho|sigma|varsigma|Sigma|tau|upsilon|Upsilon|phi|varphi|Phi|chi|psi|Psi|omega|Omega|ell|hbar|partial|nabla|imath|jmath)",
-DECO: "(?:bar|check|dot|ddot|hat|mathring|overline|tilde|vec|widehat)",
+DECO: "(?:bar|check|dot|ddot|hat|mathring|overline|tilde|vec|widehat|widetilde)",
 FUNCTION: "(?:exp|ln|log|dim|ker|arg)",
 TRIG: "(?:sin|cos|tan|cot|sec|csc|arcsin|arccos|arctan)",
 TRIG_NEW: "(?:arccot|arcsec|arccsc)",
