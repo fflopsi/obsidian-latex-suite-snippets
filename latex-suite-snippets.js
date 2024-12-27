@@ -9,7 +9,7 @@ const tr = s => s.endsWith(" ") ? s.slice(0,-1) : s;
 // Retrieve full decorator from abbreviation
 function d(s) {
   const deco = {
-    ck: "check", dvc: "dot vec", ddvc: "ddot vec", lbr: "overline", ring: "mathring", und: "underline", wht: "widehat"
+    cc: "check", dvc: "dot vec", ddvc: "ddot vec", lbr: "overline", ring: "mathring", und: "underline", wht: "widehat"
   };
   return Object.keys(deco).contains(s) ? deco[s] : s;
 }
@@ -253,8 +253,8 @@ export default [
 {trigger: /(\S|\\${GREEK} )sts/, replacement: m => `${tr(m[1])}_\\text{$0}$1`, options: "mA"},
 // Convert decorator after letter
 // This first option doesn't work for some unknown reason (matching one variable more than once?), so I literally copied the definition of DECO
-// {trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*))(${DECO}|ck|dvec|ddvec|lbar|ring|und)/, replacement: m => (m[2].match(/\{/g)||[]).length == m[3].length ? `\\${m[4]}{${tr(m[1])}}` : `${m[1]}\\${m[4]}{$0}$1`, options: "mA"},
-{trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*))((?:bar|check|dot|ddot|hat|mathring|tilde|vec|overline|ck|dvc|ddvc|lbr|ring|und|wht))/, replacement: m => {
+// {trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*))(${DECO}|cc|dvec|ddvec|lbar|ring|und)/, replacement: m => (m[2].match(/\{/g)||[]).length == m[3].length ? `\\${m[4]}{${tr(m[1])}}` : `${m[1]}\\${m[4]}{$0}$1`, options: "mA"},
+{trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*))((?:bar|check|dot|ddot|hat|mathring|tilde|vec|overline|cc|dvc|ddvc|lbr|ring|und|wht))/, replacement: m => {
   const len = d(m[4]).split(' ').length;
   var dec = "";
   for (const st of d(m[4]).split(' ')) {
