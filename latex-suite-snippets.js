@@ -252,8 +252,8 @@ export default [
 {trigger: /(\S|\\${GREEK} )sts/, replacement: m => `${tr(m[1])}_\\text{$0}$1`, options: "mA"},
 // Convert decorator after letter
 // This first option doesn't work for some unknown reason (matching one variable more than once?), so I literally copied the definition of DECO
-// {trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*))(${DECO}|cc|dvec|ddvec|lbar|ring|und|wht|wtd)/, replacement: m => (m[2].match(/\{/g)||[]).length == m[3].length ? `\\${m[4]}{${tr(m[1])}}` : `${m[1]}\\${m[4]}{$0}$1`, options: "mA"},
-{trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*))((?:bar|check|dot|ddot|hat|mathring|overline|tilde|vec|widehat|widetilde|cc|dvc|ddvc|lbr|ring|und|wht|wtd))/, replacement: m => {
+// {trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*))(${DECO}|cc|dvec|ddvec|lbar|ring|wht|wtd)/, replacement: m => (m[2].match(/\{/g)||[]).length == m[3].length ? `\\${m[4]}{${tr(m[1])}}` : `${m[1]}\\${m[4]}{$0}$1`, options: "mA"},
+{trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*))((?:bar|check|dot|ddot|hat|mathring|overline|tilde|vec|widehat|widetilde|cc|dvc|ddvc|lbr|ring|wht|wtd))/, replacement: m => {
   const len = d(m[4]).split(' ').length;
   var dec = "";
   for (const st of d(m[4]).split(' ')) {
@@ -267,9 +267,9 @@ export default [
 {trigger: /(dd?)vc/, replacement: "\\[[0]]ot{\\vec{$0}}$1", options: "mA"},
 {trigger: /lbr/, replacement: "\\overline{$0}$1", options: "mA"},
 {trigger: /ring/, replacement: "\\mathring{$0}$1", options: "mA"},
-{trigger: /und/, replacement: "\\underline{$0}$1", options: "mA"},
 {trigger: /wht/, replacement: "\\widehat{$0}$1", options: "mA"},
 {trigger: /wtd/, replacement: "\\widetilde{$0}$1", options: "mA"},
+{trigger: /und/, replacement: "\\underline{$0}$1", options: "mA"},
 
 // Trigonometric functions
 // Add \ before trig functions
