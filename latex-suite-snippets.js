@@ -235,9 +235,12 @@ export default [
 {trigger: /\\(${GREEK}|${SYMBOL}|${SHORT_SYMBOL})([A-Za-z])/, replacement: "\\[[0]] [[1]]", options: "mA"},
 
 // Letter decorations
-// Number subscript (multiple too)
-{trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*))(\d)/, replacement: m => (m[2].match(/\{/g) || []).length == m[3].length ? `${tr(m[1])}_{${m[4]}}` : `${m[1]}${m[4]}`, options: "mA", priority: -1},
+// Sequence elements
+{trigger: /([abcfgu-z]|${GREEK} )([i-n]?)(p|m)([1-3])/, replacement: m => `${tr(m[1])}_{${m[2] == "" ? "n" : l(m[2])}${m[3] == "p" ? "+" : "-"}${m[4]}}`, options: "mA"},
+// Number and common letter subscript
+{trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*))((\d)|([i-n])\6)/, replacement: m => (m[2].match(/\{/g) || []).length == m[3].length ? `${tr(m[1])}_{${m[5] ? m[5] : l(m[6])}}` : `${m[1]}${m[4]}`, options: "mA", priority: -1},
 {trigger: /_\{(\d+)\}(\}*)(\d)/, replacement: "_{[[0]][[2]]}[[1]]", options: "mA"},
+{trigger: /\\xii/, replacement: "x_{i}", options: "mA", priority: 1},
 // No subscript for symbols
 {trigger: /(\\${SYMBOL}|${SHORT_SYMBOL})(\d)/, replacement: "[[0]] [[1]]", options: "mA"},
 // Letter attachments
@@ -384,11 +387,6 @@ export default [
 {trigger: /   /, replacement: " \\, ", options: "mA"},
 {trigger: /para/, replacement: "\\parallel", options: "mA"},
 {trigger: /(c|k)onst/, replacement: "\\text{[[0]]onst.}", options: "mA"},
-
-{trigger: /([abcfgu-z]|\\${GREEK} )([i-n])\2/, replacement: m => `${tr(m[1])}_{${l(m[2])}}`, options: "mA", priority: 1},
-{trigger: /\\xii/, replacement: "x_{i}", options: "mA", priority: 2},
-{trigger: /([abcfgu-z]|${GREEK} )([i-n]?)(p|m)([1-3])/, replacement: m => `${tr(m[1])}_{${m[2] == "" ? "n" : l(m[2])}${m[3] == "p" ? "+" : "-"}${m[4]}}`, options: "mA"},
-//{trigger: /([abcfgu-z])nk/, replacement: "[[0]]_{n_{k}}", options: "mA"},
 
 // Limits
 {trigger: /li([msn])/, replacement: m => `\\lim${m[1] == "s" ? "sup" : m[1] == "n" ? "inf" : ""}_{$\{0:n\} \\to $\{1:\\infty\}} $2`, options: "mA"},
