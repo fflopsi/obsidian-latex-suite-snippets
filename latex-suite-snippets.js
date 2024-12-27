@@ -251,11 +251,11 @@ export default [
 {trigger: /(\S|\\${GREEK} )sts/, replacement: m => `${tr(m[1])}_\\text{$0}$1`, options: "mA"},
 // Convert decorator after letter
 // I needed to expand DECO, as matching it doesn't work for some unknown reason (matching one variable more than once?)
-{trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*))((?:bar|check|dot|ddot|hat|mathring|overline|tilde|vec|widehat|widetilde|cc|dvc|ddvc|lbr|ring|wht|wtd))/, replacement: m => {
+{trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*(?:_\{(?:\d+|[iikmn]|\\ell)\})?\}*))((?:bar|check|dot|ddot|hat|mathring|overline|tilde|vec|widehat|widetilde|cc|dvc|ddvc|lbr|ring|wht|wtd))/, replacement: m => {
   const len = d(m[4]).split(' ').length;
   var dec = "";
   for (const st of d(m[4]).split(' ')) dec = `${dec}\\${st}{`;
-  return (m[2].match(/\{/g) || []).length == m[3].length ? `${dec}${tr(m[1])}${"}".repeat(len)}` : `${m[1]}\\${m[4]}{$0}$1`;
+  return (m[2].match(/\{/g) || []).length == (m[3].match(/\}/g) || []).length - (m[3].match(/\{/g) || []).length ? `${dec}${tr(m[1])}${"}".repeat(len)}` : `${m[1]}\\${m[4]}{$0}$1`;
 }, options: "mA"},
 // Free standing decorators
 {trigger: /(\^|_|;;|,,)/, replacement: m => `${m[1] == ";;" ? "^" : m[1] == ",," ? "_" : m[1]}{$0}$1`, options: "mA"},
