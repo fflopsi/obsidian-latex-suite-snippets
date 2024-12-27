@@ -250,8 +250,7 @@ export default [
 {trigger: /(\S|\\${GREEK} )ani/, replacement: m => `${tr(m[1])}^{\\perp}`, options: "mA"},
 {trigger: /(\S|\\${GREEK} )sts/, replacement: m => `${tr(m[1])}_\\text{$0}$1`, options: "mA"},
 // Convert decorator after letter
-// This first option doesn't work for some unknown reason (matching one variable more than once?), so I literally copied the definition of DECO
-// {trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*))(${DECO}|cc|dvec|ddvec|lbar|ring|wht|wtd)/, replacement: m => (m[2].match(/\{/g)||[]).length == m[3].length ? `\\${m[4]}{${tr(m[1])}}` : `${m[1]}\\${m[4]}{$0}$1`, options: "mA"},
+// I needed to expand DECO, as matching it doesn't work for some unknown reason (matching one variable more than once?)
 {trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*))((?:bar|check|dot|ddot|hat|mathring|overline|tilde|vec|widehat|widetilde|cc|dvc|ddvc|lbr|ring|wht|wtd))/, replacement: m => {
   const len = d(m[4]).split(' ').length;
   var dec = "";
