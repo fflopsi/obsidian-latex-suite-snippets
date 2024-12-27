@@ -288,6 +288,7 @@ export default [
 {trigger: /\\gamma\(([abt])\)(\d)/, replacement: "\\gamma([[0]]_{[[1]]})", options: "mA", priority: 1},
 //{trigger: /hom/, replacement: "\\mathrm{Hom}_{${0:K}}(${1:V}, ${2:W})", options: "mA"},
 //{trigger: /mx/, replacement: "M_{${0:m} \\times ${1:n}}(${3:K})", options: "mA"},
+{trigger: /-1([i-n])/, replacement: m => `(-1)^{${l(m[1])}}`, options: "mA"},
 {trigger: /11([i-n])/, replacement: m => `\\mathbb{1}_{${l(m[1])}}`, options: "mA"},
 {trigger: /\\mathbb\{1\}_\{(?:[ijkmn]|\\ell)\}([2-9])/, replacement: "\\mathbb{1}_{[[0]]}", options: "mA"},
 {trigger: /(C|L)([\di-o])/, replacement: m => `${m[1]}^{${l(o(m[2]))}}`, options: "mA"},
@@ -306,6 +307,15 @@ export default [
 {trigger: /(Re|Im|sgn|Tr|End|span|adj|rk|grad|div|rot|vol|spt|Sym|Alt|Arg|ord)/, replacement: "\\operatorname{[[0]]}", options: "mA"},
 {trigger: /\\operatorname\{Re\}s/, replacement: "\\operatorname{Res}", options: "mA"},
 {trigger: /L\^\{\\infty\}g/, replacement: "\\operatorname{Log}", options: "mA"},
+
+// Special sets
+{trigger: /([DNZQRCS])\1/, replacement: "\\mathbb{[[0]]}", options: "mA"},
+{trigger: /\\mathbb\{([NZQRCS])\}([2-9a-z+-])/, replacement: "\\mathbb{[[0]]}^{[[1]]}", options: "mA"},
+{trigger: /\\mathbb\{N\}0/, replacement: "\\mathbb{N}_{0}", options: "mA"},
+{trigger: /\\mathbb\{C\}C/, replacement: "\\hat{\\mathbb{C}}", options: "mA"},
+{trigger: /([FM])\1/, replacement: "\\mathcal{[[0]]}", options: "mA"},
+{trigger: /([H])\1/, replacement: "\\mathscr{[[0]]}", options: "mA"},
+{trigger: /\\mathbb\{S\}S/, replacement: "\\mathscr{S}", options: "mA"},
 
 // Symbols
 // Fix ' usage for derivatives to supress autopair
@@ -379,15 +389,6 @@ export default [
 {trigger: /\\xii/, replacement: "x_{i}", options: "mA", priority: 2},
 {trigger: /([abcfgu-z]|${GREEK} )([i-n]?)(p|m)([1-3])/, replacement: m => `${tr(m[1])}_{${m[2] == "" ? "n" : l(m[2])}${m[3] == "p" ? "+" : "-"}${m[4]}}`, options: "mA"},
 //{trigger: /([abcfgu-z])nk/, replacement: "[[0]]_{n_{k}}", options: "mA"},
-{trigger: /-1([i-n])/, replacement: m => `(-1)^{${l(m[1])}}`, options: "mA"},
-
-{trigger: /([DNZQRCS])\1/, replacement: "\\mathbb{[[0]]}", options: "mA"},
-{trigger: /\\mathbb\{([NZQRCS])\}([2-9a-z+-])/, replacement: "\\mathbb{[[0]]}^{[[1]]}", options: "mA"},
-{trigger: /\\mathbb\{N\}0/, replacement: "\\mathbb{N}_{0}", options: "mA"},
-{trigger: /\\mathbb\{C\}C/, replacement: "\\hat{\\mathbb{C}}", options: "mA"},
-{trigger: /([FM])\1/, replacement: "\\mathcal{[[0]]}", options: "mA"},
-{trigger: /([H])\1/, replacement: "\\mathscr{[[0]]}", options: "mA"},
-{trigger: /\\mathbb\{S\}S/, replacement: "\\mathscr{S}", options: "mA"},
 
 // Limits
 {trigger: /li([msn])/, replacement: m => `\\lim${m[1] == "s" ? "sup" : m[1] == "n" ? "inf" : ""}_{$\{0:n\} \\to $\{1:\\infty\}} $2`, options: "mA"},
