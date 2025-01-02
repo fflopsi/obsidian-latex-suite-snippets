@@ -242,7 +242,7 @@ export default [
 // Number and common letter subscript
 {trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*))((\d)|([i-n])\6)/, replacement: m => (m[2].match(/\{/g) || []).length == m[3].length ? `${tr(m[1])}_{${m[5] ? m[5] : l(m[6])}}` : `${m[1]}${m[4]}`, options: "mA", priority: -1},
 {trigger: /_\{(\d+)\}(\}*)(\d)/, replacement: "_{[[0]][[2]]}[[1]]", options: "mA"},
-{trigger: /\\xii/, replacement: "x_{i}", options: "mA", priority: 1},
+{trigger: /\\([PXpx])ii/, replacement: "[[0]]_{i}", options: "mA", priority: 1},
 // No subscript for symbols
 {trigger: /(\\${SYMBOL}|${SHORT_SYMBOL})(\d)/, replacement: "[[0]] [[1]]", options: "mA"},
 // Letter attachments
