@@ -96,6 +96,7 @@ export default [
 {trigger: /(D)ef/, replacement: "[[0]]efinition", options: "t", flags: "i"},
 {trigger: /(T)hm/, replacement: "[[0]]heorem", options: "t", flags: "i"},
 {trigger: /(P)rop/, replacement: "[[0]]roposition", options: "t", flags: "i"},
+{trigger: /(S)ys?/, replacement: "[[0]]ystem", options: "t", flags: "i"},
 {trigger: /(p)os?/, replacement: "[[0]]ositiv", options: "t", flags: "i"},
 {trigger: /(n)eg?/, replacement: "[[0]]egativ", options: "t", flags: "i"},
 {trigger: /(c|k)on(s|st)?/, replacement: "[[0]]onstant", options: "t", flags: "i", priority: 1},
