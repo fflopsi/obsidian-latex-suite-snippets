@@ -308,7 +308,7 @@ export default [
 {trigger: /\\mathbb\{([NZQRCS])\}([2-9a-z+-])/, replacement: "\\mathbb{[[0]]}^{[[1]]}", options: "mA"},
 {trigger: /\\mathbb\{N\}0/, replacement: "\\mathbb{N}_{0}", options: "mA"},
 {trigger: /\\mathbb\{C\}C/, replacement: "\\hat{\\mathbb{C}}", options: "mA"},
-{trigger: /([FM])\1/, replacement: "\\mathcal{[[0]]}", options: "mA"},
+{trigger: /([FMO])\1/, replacement: "\\mathcal{[[0]]}", options: "mA"},
 {trigger: /([H])\1/, replacement: "\\mathscr{[[0]]}", options: "mA"},
 {trigger: /\\mathbb\{S\}S/, replacement: "\\mathscr{S}", options: "mA"},
 
