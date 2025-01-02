@@ -36,6 +36,8 @@ export default [
 {trigger: /case/, replacement: "\\begin{cases}\n$0\n\\end{cases}", options: "MA"},
 {trigger: /(align|array|matrix)/, replacement: "\\begin{[[0]]}\n$0\n\\end{[[0]]}", options: "MA"},
 {trigger: /([BbpVv])mat/, replacement: "\\begin{[[0]]matrix}\n$0\n\\end{[[0]]matrix}", options: "MA"},
+// Matrix multi-tab contraction
+{trigger: /((?: & ){2,}) /, replacement: m => ` ${"&".repeat(m[1].match(/&/g).length)} `, options: "mA"},
 
 // Headings
 {trigger: /h([1-6])/, replacement: m => `${"#".repeat(m[1])} `, options: "tA"},
