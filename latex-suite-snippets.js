@@ -399,7 +399,7 @@ export default [
 {trigger: /([\di-n]?)(pa|de)([A-Za-z]{0,2})/, replacement: m => {
   const d = m[2] == "pa" ? "\\partial" : "\\mathrm{d}";
   const p = m[1] != "" ? `^{${l(m[1])}}` : "";
-  const f = m[3].length == 2 ? m[3].charAt(0) : "${0:y}";
+  const f = m[3].length == 2 ? m[3].charAt(0) : "$0";
   const ds = m[3] != "" ? m[3].slice(-1) : "${1:x}";
   return `\\frac{${d}${p}${m[2] == "pa" && p == "" ? " " : ""}${f}}{${d}${m[2] == "pa" ? " " : ""}${ds}${p}}$2`;
 }, options: "m"},
