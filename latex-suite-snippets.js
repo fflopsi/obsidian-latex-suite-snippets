@@ -120,6 +120,7 @@ export default [
 {trigger: /Fou?/, replacement: "Fourier", options: "t", flags: "i"},
 {trigger: /Schw?/, replacement: "Schwartz", options: "t", flags: "i"},
 {trigger: /Lag?/, replacement: "Lagrange", options: "t", flags: "i"},
+{trigger: /EL/, replacement: "Euler-Lagrange", options: "t", flags: "i"},
 
 // German
 {trigger: /Kor/, replacement: "Korollar", options: "t", flags: "i"},
