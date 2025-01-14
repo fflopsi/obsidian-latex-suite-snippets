@@ -9,7 +9,7 @@ const tr = s => s.endsWith(" ") ? s.slice(0,-1) : s;
 // Retrieve full decorator from abbreviation
 function d(s) {
   const deco = {
-    cc: "check", dvc: "dot vec", ddvc: "ddot vec", lbr: "overline", ring: "mathring", und: "underline", wht: "widehat", wtd: "widetilde"
+    cek: "check", dvc: "dot vec", ddvc: "ddot vec", lbr: "overline", ring: "mathring", und: "underline", wht: "widehat", wtd: "widetilde"
   };
   return Object.keys(deco).contains(s) ? deco[s] : s;
 }
@@ -254,7 +254,7 @@ export default [
 {trigger: /(\S|\\${GREEK} )sts/, replacement: m => `${tr(m[1])}_\\text{$0}$1`, options: "mA"},
 // Convert decorator after letter
 // I needed to expand DECO for the second match, as matching it doesn't work for some unknown reason (matching one variable more than once?)
-{trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*(?:_\{(?:\d+|[iikmn]|\\ell)\})?\}*))((?:bar|check|dot|ddot|hat|mathring|overline|tilde|vec|widehat|widetilde|cc|dvc|ddvc|lbr|ring|wht|wtd))/, replacement: m => {
+{trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*(?:_\{(?:\d+|[iikmn]|\\ell)\})?\}*))((?:bar|check|dot|ddot|hat|mathring|overline|tilde|vec|widehat|widetilde|cek|dvc|ddvc|lbr|ring|wht|wtd))/, replacement: m => {
   const len = d(m[4]).split(' ').length;
   var dec = "";
   for (const st of d(m[4]).split(' ')) dec += `\\${st}{`;
@@ -271,7 +271,7 @@ export default [
 // Free standing decorators
 {trigger: /(\^|_|;;|,,)/, replacement: m => `${m[1] == ";;" ? "^" : m[1] == ",," ? "_" : m[1]}{$0}$1`, options: "mA"},
 {trigger: /(${DECO})/, replacement: "\\[[0]]{$0}$1", options: "mA"},
-{trigger: /(cc|lbr|ring|und|wht|wtd)/, replacement: m => `\\${d(m[1])}{$0}$1`, options: "mA"},
+{trigger: /(cek|lbr|ring|und|wht|wtd)/, replacement: m => `\\${d(m[1])}{$0}$1`, options: "mA"},
 
 // Trigonometric functions
 // Add \ before trig functions
