@@ -231,6 +231,8 @@ export default [
 // Greek letters
 {trigger: /@([a-ik-pr-uw-zDFGLOPSTUWXY])/, replacement: m => `\\${gr(m[1])}`, options: "mA"},
 {trigger: /:([efkprst])/, replacement: m => `\\var${gr(m[1])}`, options: "mA"},
+{trigger: /([atT])\1/, replacement: m => `\\${gr(m[1])}`, options: "mA"},
+{trigger: /(l)am/, replacement: "\\[[0]]ambda", options: "mA", flags: "i"},
 {trigger: /(o)me/, replacement: "\\[[0]]mega", options: "mA", flags: "i"},
 // Add backslash before greek letters and symbols
 {trigger: /(?<!\\)(${GREEK}|${SYMBOL})/, replacement: "\\[[0]]", options: "mA"},
