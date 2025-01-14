@@ -286,8 +286,8 @@ export default [
 {trigger: /ar\\(${HYP_TRIG}|${HYP_TRIG_NEW})/, replacement: "\\operatorname{ar[[0]]}", options: "mA", priority: 1},
 
 // Operations
-{trigger: /(?<!\\ar)([FGfg](?:_\{(?:[\dijkmn]|\\ell)\})?)('*)([w-z])/, replacement: "[[0]][[1]]([[2]])", options: "mA"},
-{trigger: /([FGfg](?:_\{(?:[\dijkmn]|\\ell)\})?)('*)\(([w-z])\)(\d)/, replacement: "[[0]][[1]]([[2]]_{[[3]]})", options: "mA"},
+{trigger: /(?<!\\ar)([FGfgh](?:_\{(?:[\dijkmn]|\\ell)\})?)('*)([w-z])/, replacement: "[[0]][[1]]([[2]])", options: "mA"},
+{trigger: /([FGfgh](?:_\{(?:[\dijkmn]|\\ell)\})?)('*)\(([w-z])\)(\d)/, replacement: "[[0]][[1]]([[2]]_{[[3]]})", options: "mA"},
 {trigger: /fuv/, replacement: "f = u + iv", options: "mA"},
 {trigger: /(w|z)(xy|ab)/, replacement: m => `${m[1]} = ${m[2][0]} + i${m[2][1]}`, options: "mA"},
 {trigger: /\\gamma([abt])/, replacement: "\\gamma([[0]])", options: "mA", priority: 1},
