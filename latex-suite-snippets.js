@@ -116,10 +116,11 @@ export default [
 {trigger: /Rie?/, replacement: "Riemann", options: "t", flags: "i"},
 {trigger: /Jor/, replacement: "Jordan", options: "t", flags: "i"},
 {trigger: /Leb/, replacement: "Lebesgue", options: "t", flags: "i"},
-{trigger: /CR/, replacement: "Cauchy-Riemann", options: "t", flags: "i"},
 {trigger: /Fou?/, replacement: "Fourier", options: "t", flags: "i"},
 {trigger: /Schw?/, replacement: "Schwartz", options: "t", flags: "i"},
 {trigger: /Lag?/, replacement: "Lagrange", options: "t", flags: "i"},
+{trigger: /Lor?/, replacement: "Lorentz", options: "t", flags: "i"},
+{trigger: /CR/, replacement: "Cauchy-Riemann", options: "t", flags: "i"},
 {trigger: /EL/, replacement: "Euler-Lagrange", options: "t", flags: "i"},
 
 // German
