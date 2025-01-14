@@ -260,6 +260,14 @@ export default [
   for (const st of d(m[4]).split(' ')) dec += `\\${st}{`;
   return (m[2].match(/\{/g) || []).length == (m[3].match(/\}/g) || []).length - (m[3].match(/\{/g) || []).length ? `${dec}${tr(m[1])}${"}".repeat(len)}` : `${m[1]}\\${m[4]}{$0}$1`;
 }, options: "mA"},
+// Shortcut for dotting variables
+{trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK})(\}*(?:_\{(?:\d+|[iikmn]|\\ell)\})?\}*))`/, replacement: m => {
+  if ((m[2].match(/\{/g) || []).length != (m[3].match(/\}/g) || []).length - (m[3].match(/\{/g) || []).length) return m[1] + m[4];
+  const i = m[1].search(/\\d{1,3}ot\{/);
+  if (i == -1) m[1] = `\\dot{${tr(m[1])}}`;
+  else m[1] = m[1].slice(0,i+1) + "d" + m[1].slice(i+1);
+  return m[1];
+}, options: "mA"},
 // Free standing decorators
 {trigger: /(\^|_|;;|,,)/, replacement: m => `${m[1] == ";;" ? "^" : m[1] == ",," ? "_" : m[1]}{$0}$1`, options: "mA"},
 {trigger: /(${DECO})/, replacement: "\\[[0]]{$0}$1", options: "mA"},
