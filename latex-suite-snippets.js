@@ -30,7 +30,7 @@ export default [
 // Math mode
 {trigger: /fj|jf/, replacement: "${ $0 }$$1", options: "tA"},
 {trigger: /(a?)dk|kd/, replacement: m => `$$\n${m[1] == "a" ? "\\begin{align}\n" : ""}$0\n${m[1] == "a" ? "\\end{align}\n" : ""}$$\n`, options: "tAw"},
-{trigger: /split/, replacement: " }$ ${ ", options: "nA"},
+{trigger: /split/, replacement: " }$ $0${ ", options: "nA"},
 // Environments
 {trigger: /beg/, replacement: "\\begin{$0}\n$1\n\\end{$0}", options: "MA"},
 {trigger: /case/, replacement: "\\begin{cases}\n$0\n\\end{cases}", options: "MA"},
