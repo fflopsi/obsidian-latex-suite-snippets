@@ -364,7 +364,7 @@ export default [
 {trigger: /nott/, replacement: "\\not", options: "mA"},
 {trigger: /(n?)s(p?)set/, replacement: m => `\\${m[1]}su${m[2] == "p" ? "p" : "b"}seteq`, options: "mA", priority: 1},
 {trigger: /\\su(b|p)seteqn/, replacement: "\\su[[0]]setneq", options: "mA", priority: 1},
-{trigger: /eset/, replacement: "\\emptyset", options: "mA", priority: 1},
+{trigger: /eset/, replacement: "\\varnothing", options: "mA", priority: 1},
 {trigger: /(n?)e\\xi sts/, replacement: "\\[[0]]exists", options: "mA", priority: 1},
 {trigger: /foral/, replacement: "\\forall", options: "mA"},
 {trigger: /=>/, replacement: "\\implies", options: "mA"},
