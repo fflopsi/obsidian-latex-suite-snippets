@@ -343,7 +343,7 @@ export default [
 {trigger: /-->/, replacement: "\\xrightarrow{${0:n} \\to ${1:\\infty}} $2", options: "mA"},
 {trigger: /dto/, replacement: "\\searrow", options: "mA"},
 {trigger: /uto/, replacement: "\\nearrow", options: "mA"},
-{trigger: /mto/, replacement: "\\mapsto", options: "mA"},
+{trigger: /(x?)mto/, replacement: m => `\\${m[1]}mapsto${m[1] != "" ? "{$0}$1" : ""}`, options: "mA"},
 //{trigger: /!>/, replacement: "\\mapsto", options: "mA"},
 {trigger: /lto/, replacement: "\\leadsto", options: "mA"},
 {trigger: /<->/, replacement: "\\leftrightarrow", options: "mA"},
