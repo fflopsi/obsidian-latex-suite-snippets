@@ -122,6 +122,8 @@ export default [
 {trigger: /Lor?/, replacement: "Lorentz", options: "t", flags: "i"},
 {trigger: /CR/, replacement: "Cauchy-Riemann", options: "t", flags: "i"},
 {trigger: /EL/, replacement: "Euler-Lagrange", options: "t", flags: "i"},
+{trigger: /Carn?/, replacement: "Carnot", options: "t", flags: "i"},
+{trigger: /Clau?/, replacement: "Clausius", options: "t", flags: "i"},
 
 // German
 {trigger: /Kor/, replacement: "Korollar", options: "t", flags: "i"},
@@ -162,7 +164,7 @@ export default [
 {trigger: /EW/, replacement: "Eigenwert", options: "t", flags: "i"},
 {trigger: /EV/, replacement: "Eigenvektor", options: "t", flags: "i"},
 //{trigger: /ER/, replacement: "Eigenraum", options: "t", flags: "i"},
-//{trigger: /(d)b/, replacement: "[[0]]iagonalisierbar", options: "t", flags: "i"},
+{trigger: /(d)b/, replacement: "[[0]]iagonalisierbar", options: "t", flags: "i"},
 //{trigger: /JNF/, replacement: "Jordan'sche Normalform", options: "t", flags: "i"},
 //{trigger: /(I)PR/, replacement: "[[0]]nnerer Produktraum", options: "t", flags: "i"},
 //{trigger: /Pr/, replacement: "Produkt", options: "t", flags: "i"},
@@ -170,6 +172,8 @@ export default [
 {trigger: /(o)rth?g/, replacement: "[[0]]rthogonal", options: "t", flags: "i"},
 {trigger: /(o)rt(h?)n/, replacement: "[[0]]rthonormal", options: "t", flags: "i"},
 {trigger: /ONB/, replacement: "Orthonormalbasis", options: "t", flags: "i"},
+{trigger: /HS/, replacement: "Hauptsatz", options: "t", flags: "i"},
+{trigger: /QF/, replacement: "Quadraturformel", options: "t", flags: "i"},
 
 // Order numbers
 {trigger: /([\d])\.\./, replacement: m => `${m[1]}<sup>${th(m[1])}</sup>`, options: "tA"},
