@@ -340,7 +340,7 @@ export default [
 {trigger: /o\+/, replacement: "\\oplus", options: "mA"},
 {trigger: /o-/, replacement: "\\ominus", options: "mA"},
 {trigger: /ox/, replacement: "\\otimes", options: "mA"},
-{trigger: /o\//, replacement: "\\oslash", options: "mA", priority: 1},
+{trigger: /oo\//, replacement: "\\oslash", options: "mA", priority: 1},
 {trigger: /\.\./, replacement: "\\cdot", options: "mA"},
 {trigger: /\\cdot\./, replacement: "\\dots", options: "mA"},
 {trigger: /(c|d)\\cdot\./, replacement: "\\[[0]]dots", options: "mA"},
