@@ -322,7 +322,8 @@ export default [
 
 // Special sets
 {trigger: /([DNZQRCS])\1/, replacement: "\\mathbb{[[0]]}", options: "mA"},
-{trigger: /\\mathbb\{([NZQRCS])\}([2-9a-z+-])/, replacement: "\\mathbb{[[0]]}^{[[1]]}", options: "mA"},
+{trigger: /(\\mathbb\{[NZQRCS]\}(?:_\{[+-]\})?)([2-9a-z])/, replacement: "[[0]]^{[[1]]}", options: "mA"},
+{trigger: /(\\mathbb\{[NZQRCS]\}(?:\^\{[2-9a-z]\})?)([+-])/, replacement: "[[0]]_{[[1]]}", options: "mA"},
 {trigger: /\\mathbb\{N\}0/, replacement: "\\mathbb{N}_{0}", options: "mA"},
 {trigger: /\\mathbb\{C\}C/, replacement: "\\hat{\\mathbb{C}}", options: "mA"},
 {trigger: /([FMO])\1/, replacement: "\\mathcal{[[0]]}", options: "mA"},
