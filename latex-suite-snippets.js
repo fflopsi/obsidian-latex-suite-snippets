@@ -375,6 +375,7 @@ export default [
 {trigger: /foral/, replacement: "\\forall", options: "mA"},
 {trigger: /=>/, replacement: "\\implies", options: "mA"},
 {trigger: /=</, replacement: "\\impliedby", options: "mA"},
+{trigger: /\\xi ff/, replacement: "\\xLeftrightarrow{$0}$1", options: "mA", priority: 1},
 {trigger: /===/, replacement: "\\equiv", options: "mA"},
 {trigger: /S(Q|q)/, replacement: "\\square", options: "mA"},
 {trigger: /S(Q|q)/, replacement: "${ \\square }$", options: "tAw"},
