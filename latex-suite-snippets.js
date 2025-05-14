@@ -187,8 +187,8 @@ export default [
 //{trigger: /([04-9])th/, replacement: "[[0]]^{\\text{th}}", options: "mA"},
 
 // Visual, don't work with regex
-{trigger: "A", replacement: "\\begin{align}\n${VISUAL}$0\n\\end{align}", options: "mA"},
-{trigger: "Z", replacement: s => `\\begin{align}\n${s.replace(/=/, "& =").replace(/(?<!& )=/g, "\\\\\n & =")}$0\n\\end{align}`, options: "vmA"},
+{trigger: "A", replacement: "\\begin{align}\n${VISUAL}$0\n\\end{align}", options: "MA"},
+{trigger: "Z", replacement: s => `\\begin{align}\n${s.replace(/=/, "& =").replace(/(?<!& )=/g, "\\\\\n & =")}$0\n\\end{align}`, options: "vMA"},
 {trigger: "U", replacement: "\\underbracket{ ${VISUAL} }_{ $0 }$1", options: "mA"},
 {trigger: "O", replacement: "\\overbracket{ ${VISUAL} }^{ $0 }$1", options: "mA"},
 {trigger: "D", replacement: "\\underset{ $0 }{ ${VISUAL} }$1", options: "mA"},
