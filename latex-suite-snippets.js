@@ -187,6 +187,8 @@ export default [
 //{trigger: /([04-9])th/, replacement: "[[0]]^{\\text{th}}", options: "mA"},
 
 // Visual, don't work with regex
+// Transform inline math to display math
+{trigger: "I", replacement: s => `\$\n\$\{0:${s.replace(/^\{ /, "").replace(/ \}$/, "")}\}\$1\n\$`, options: "vnA"},
 {trigger: "A", replacement: "\\begin{align}\n${VISUAL}$0\n\\end{align}", options: "MA"},
 {trigger: "Z", replacement: s => `\\begin{align}\n${s.replace(/=/, "& =").replace(/(?<!& )=/g, "\\\\\n & =")}$0\n\\end{align}`, options: "vMA"},
 {trigger: "U", replacement: "\\underbracket{ ${VISUAL} }_{ $0 }$1", options: "mA"},
