@@ -317,7 +317,7 @@ export default [
 {trigger: /\/\//, replacement: "\\frac{$0}{$1}$2", options: "mA"},
 {trigger: /ee/, replacement: "e^{$0}$1", options: "mA"},
 {trigger: /(id)/, replacement: "\\mathrm{[[0]]}", options: "mA"},
-{trigger: /(Re|Im|sgn|Tr|End|span|adj|grad|div|rot|vol|spt|Sym|Alt|Arg|ord|Stab)/, replacement: "\\operatorname{[[0]]}", options: "mA"},
+{trigger: /(Re|Im|sgn|Tr|End|Hom|span|adj|grad|div|rot|vol|spt|Sym|Alt|Arg|ord|Stab)/, replacement: "\\operatorname{[[0]]}", options: "mA"},
 {trigger: /rnk/, replacement: "\\operatorname{rank}", options: "mA"},
 {trigger: /\\operatorname\{Re\}s/, replacement: "\\operatorname{Res}", options: "mA"},
 {trigger: /L\^\{\\infty\}g/, replacement: "\\operatorname{Log}", options: "mA"},
