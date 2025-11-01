@@ -404,6 +404,7 @@ export default [
 {trigger: /li([msn])/, replacement: m => `\\lim${m[1] == "s" ? "sup" : m[1] == "n" ? "inf" : ""}_{$\{0:n\} \\to $\{1:\\infty\}} $2`, options: "mA"},
 // Sums and products
 {trigger: /(ssum|pprod)/, replacement: m => `\\${m[1].slice(1)}_{$\{0:n\} = $\{1:1\}}^{$\{2:\\infty\}} $3`, options: "mA", priority: 1},
+{trigger: /(zsum|zprod)/, replacement: m => `\\${m[1].slice(1)}_{$\{0:n\} \\in $\{1:\\mathbb{Z}\}} $3`, options: "mA", priority: 1},
 
 // Derivatives
 {trigger: /dd([tx-z])/, replacement: "\\frac{\\mathrm{d}$0}{\\mathrm{d}[[0]]}$1", options: "mA"},
