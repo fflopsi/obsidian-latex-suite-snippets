@@ -312,7 +312,7 @@ export default [
 {trigger: /bin/, replacement: "\\binom{$0}{$1}$2", options: "mA"},
 {trigger: /te/, replacement: "\\text{$0}$1", options: "m"},
 {trigger: /text/, replacement: "\\text{$0}$1", options: "mA"},
-{trigger: /m?(bb|bf|cal|rm|scr)/, replacement: "\\math[[0]]{$0}$1", options: "mA", priority: -1},
+{trigger: /m?(bb|bf|cal|rm|scr|frak)/, replacement: "\\math[[0]]{$0}$1", options: "mA", priority: -1},
 {trigger: /op/, replacement: "\\operatorname{$0}$1", options: "mA"},
 {trigger: /(n?)sq/, replacement: m => `\\sqrt${m[1] == "n" ? "[$0]" : ""}{$1}$2`, options: "mA"},
 {trigger: /\/\//, replacement: "\\frac{$0}{$1}$2", options: "mA"},
