@@ -322,6 +322,7 @@ export default [
 {trigger: /rnk/, replacement: "\\operatorname{rank}", options: "mA"},
 {trigger: /\\operatorname\{Re\}s/, replacement: "\\operatorname{Res}", options: "mA"},
 {trigger: /L\^\{\\infty\}g/, replacement: "\\operatorname{Log}", options: "mA"},
+{trigger: /L\^\{i\}e/, replacement: "\\operatorname{Lie}", options: "mA"},
 
 // Special sets
 {trigger: /([DNZQRCS])\1/, replacement: "\\mathbb{[[0]]}", options: "mA"},
