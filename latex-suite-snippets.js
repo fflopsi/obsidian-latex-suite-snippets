@@ -224,6 +224,7 @@ export default [
 // Physics
 {trigger: /pu/, replacement: "\\pu{$0}$1", options: "mA"},
 {trigger: /hba/, replacement: "\\hbar", options: "mA"},
+{trigger: /e(-|\+)\1/, replacement: "e^{[[0]]}", options: "mA"},
 {trigger: /kbb/, replacement: "k_{B}", options: "mA"},
 {trigger: /kbt/, replacement: "k_{B}T", options: "mA"},
 {trigger: /(Q|W)(in|out)/, replacement: m => `${m[1]}^{\\${m[2] == "in" ? "sw" : "ne"}arrow}`, options: "mA"},
