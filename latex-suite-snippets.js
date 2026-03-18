@@ -29,7 +29,7 @@ function gr(s) {
 export default [
 // Math mode
 {trigger: /fj|jf/, replacement: "${ $0 }$$1", options: "tA"},
-{trigger: /(a?)dk|kd/, replacement: m => `$$\n${m[1] == "a" ? "\\begin{align}\n" : ""}$0\n${m[1] == "a" ? "\\end{align}\n" : ""}$$\n`, options: "tAw"},
+{trigger: /((?:\> ?)?)(a?)dk|kd/, replacement: m => `${m[1]}$$\n${m[2] == "a" ? `${m[1]}\\begin{align}\n` : ""}${m[1]}$0\n${m[2] == "a" ? `${m[1]}\\end{align}\n` : ""}${m[1]}$$\n`, options: "tAw"},
 {trigger: /split/, replacement: " }$ $0${ ", options: "nA"},
 // Environments
 {trigger: /beg/, replacement: "\\begin{$0}\n$1\n\\end{$0}", options: "MA"},
