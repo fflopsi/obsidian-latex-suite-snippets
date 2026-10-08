@@ -252,7 +252,7 @@ export default [
 // Sequence elements
 {trigger: /([abcfgu-z]|${GREEK} )([i-n]?)(p|m)([1-3])/, replacement: m => `${tr(m[1])}_{${m[2] == "" ? "n" : l(m[2])}${m[3] == "p" ? "+" : "-"}${m[4]}}`, options: "mA"},
 // Number and common letter subscript
-{trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*))((\d)|([i-n])\6)/, replacement: m => (m[2].match(/\{/g) || []).length == m[3].length ? `${tr(m[1])}_{${m[5] ? m[5] : l(m[6])}}` : `${m[1]}${m[4]}`, options: "mA", priority: -1},
+{trigger: /(((?:\\${DECO}\{)*)(?:[A-Za-z]|\\${GREEK} ?)(\}*))((\d)|([i-nx-z])\6)/, replacement: m => (m[2].match(/\{/g) || []).length == m[3].length ? `${tr(m[1])}_{${m[5] ? m[5] : l(m[6])}}` : `${m[1]}${m[4]}`, options: "mA", priority: -1},
 {trigger: /_\{(\d+)\}(\}*)(\d)/, replacement: "_{[[0]][[2]]}[[1]]", options: "mA"},
 // {trigger: /\\([PXpx])ii/, replacement: "[[0]]_{i}", options: "mA", priority: 1},
 // No subscript for symbols
@@ -395,7 +395,8 @@ export default [
 {trigger: /nabl/, replacement: "\\nabla", options: "mA"},
 {trigger: /del/, replacement: "\\partial", options: "mA"},
 {trigger: /ddd/, replacement: "\\mathrm{d}", options: "mA"},
-{trigger: /(l|r?)xx/, replacement: "\\[[0]]times", options: "mA"},
+{trigger: /xx/, replacement: "\\times", options: "mA", priority: -2},
+{trigger: /(l|r)xx/, replacement: "\\[[0]]times", options: "mA"},
 // Convert three spaces into a rendered small space
 {trigger: /   /, replacement: " \\, ", options: "mA"},
 {trigger: /para/, replacement: "\\parallel", options: "mA"},
